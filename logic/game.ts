@@ -1,7 +1,10 @@
-const game = ref<Game>({
+export const newGame = (): Game => ({
+  canSave: false,
   players: [],
   rounds: []
 });
+
+const game = ref<Game>(newGame());
 
 const gameStorageKey = "current-game";
 
@@ -14,7 +17,7 @@ const loadGame = () => {
 };
 
 const saveGame = () => {
-  if (game.value) {
+  if (game.value && game.value.canSave) {
     const json = JSON.stringify(game.value);
     localStorage.setItem(gameStorageKey, json);
   }
@@ -30,7 +33,7 @@ export const useGameSaver = () => {
 
 export const useGameLoader = () => {
   onMounted(() => {
-    if (!game.value) {
+    if (!game.value.canSave) {
       loadGame();
     }
   });

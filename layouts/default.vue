@@ -12,9 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { useGameSaver, useGameLoader } from '~/game';
+import { useGameSaver, useGameLoader } from '~/logic/game';
 
 // Automatically load and save game to/from local storage
 useGameLoader();
 useGameSaver();
 </script>
+~/logic/game

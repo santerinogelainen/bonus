@@ -21,6 +21,7 @@ type Round = {
 }
 
 type Game = {
+  canSave: boolean;
   players: Array<Player>;
   rounds: Array<Round>;
 }
