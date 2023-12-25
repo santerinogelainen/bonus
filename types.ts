@@ -22,6 +22,7 @@ type Round = {
 
 type Game = {
   canSave: boolean;
+  maxRoundCards: number;
   players: Map<PlayerId, Player>;
   rounds: Array<Round>;
 }

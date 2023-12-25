@@ -1,7 +1,8 @@
 export const newGame = (): Game => ({
   canSave: false,
   players: new Map<PlayerId, Player>(),
-  rounds: []
+  rounds: [],
+  maxRoundCards: 0
 });
 
 const game = ref<Game>(newGame());
