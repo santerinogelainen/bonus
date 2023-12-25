@@ -8,8 +8,8 @@ type Player = {
 
 type RoundGuess = {
   playerId: PlayerId;
-  guess: number;
-  answer: number;
+  guess?: number;
+  answer?: number;
 }
 
 type Round = {

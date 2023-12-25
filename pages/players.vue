@@ -37,10 +37,12 @@ const removePlayer = (id: PlayerId) => {
 };
 
 const setUnknownPlayers = () => {
-  game.value.players.forEach((player, index) => {
+  let index = 1;
+  game.value.players.forEach((player) => {
     if (!player.name) {
-      player.name = `Pelaaja ${index + 1}`
+      player.name = `Pelaaja ${index}`
     }
+    index++;
   });
 }
 
