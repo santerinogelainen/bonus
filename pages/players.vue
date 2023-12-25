@@ -1,7 +1,7 @@
 <template>
   <v-list>
     <v-list-item
-      v-for="player in game.players"
+      v-for="player in game.players.values()"
       :key="player.id"
     >
       <v-text-field
@@ -13,27 +13,46 @@
     </v-list-item>
   </v-list>
   <v-btn
-    v-if="game && game.players.length < 8"
+    v-if="game && game.players.size < 8"
     variant="text"
     @click="addPlayer"
     >Lisää pelaaja</v-btn
   >
+  <v-btn @click="continueToGame">
+    Jatka
+  </v-btn>
 </template>
 
 <script setup lang="ts">
 import game from "~/logic/game";
-import { createPlayer } from "~/logic/player";
+import { addPlayer } from "~/logic/player";
+import { getRandomItem } from "~/logic/utils";
 
 const removePlayer = (id: PlayerId) => {
-  if (game.value.players.length <= 3) {
+  if (game.value.players.size <= 3) {
     alert("Pelaajaa ei voida poistaa. Pelissä tulee olla vähintään 3 pelaajaa.")
     return;
   }
-  game.value.players = game.value.players.filter((x) => x.id !== id);
+  game.value.players.delete(id);
 };
 
-const addPlayer = () => {
-  game.value.players.push(createPlayer());
-};
+const setUnknownPlayers = () => {
+  game.value.players.forEach((player, index) => {
+    if (!player.name) {
+      player.name = `Pelaaja ${index + 1}`
+    }
+  });
+}
+
+const continueToGame = () => {
+  setUnknownPlayers();
+  game.value.rounds.push({
+    id: 1,
+    cards: 1,
+    dealerId: getRandomItem([...game.value.players.values()]).id,
+    guesses: []
+  })
+  navigateTo("/rounds");
+}
 </script>
 ~/logic/game~/logic/player

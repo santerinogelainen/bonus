@@ -1,6 +1,6 @@
 export const newGame = (): Game => ({
   canSave: false,
-  players: [],
+  players: new Map<PlayerId, Player>(),
   rounds: []
 });
 

@@ -17,11 +17,11 @@ type Round = {
   cards: number;
   guesses: Array<RoundGuess>;
   dealerId: PlayerId;
-  suit: Suit;
+  suit?: Suit;
 }
 
 type Game = {
   canSave: boolean;
-  players: Array<Player>;
+  players: Map<PlayerId, Player>;
   rounds: Array<Round>;
 }
