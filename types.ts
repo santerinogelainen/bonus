@@ -26,3 +26,8 @@ type Game = {
   players: Map<PlayerId, Player>;
   rounds: Array<Round>;
 }
+
+type GameTotals = {
+  playerId: string;
+  points: number;
+}
