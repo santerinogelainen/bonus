@@ -1,10 +1,19 @@
 <template>
+  <v-btn @click="continueGame" v-if="game.isLoaded">Jatka peliä</v-btn>
   <v-btn @click="createNewGame">Uusi peli</v-btn>
 </template>
 
 <script setup lang="ts">
 import game, { newGame } from '~/logic/game';
 import { addPlayer } from '~/logic/player';
+
+const continueGame = () => {
+  if (game.value.rounds.length > 0) {
+    navigateTo("/rounds");
+  } else {
+    navigateTo("/players");
+  }
+}
 
 const createNewGame = () => {
   game.value = newGame();
@@ -18,4 +27,4 @@ const createNewGame = () => {
   game.value.isLoaded = true;
   navigateTo("/players");
 }
-</script>~/logic/game
+</script>

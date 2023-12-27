@@ -1,5 +1,4 @@
 <template>
-  
   <v-table density="compact">
     <thead>
       <tr>
@@ -21,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="guess in round.guesses" v-show="guess.playerId !== ignorePlayer">
+      <tr v-for="guess in round.guesses.filter(x => x.guess !== undefined)">
         <td><strong>{{ game.players[guess.playerId]?.name }}</strong></td>
         <td>{{ guess.guess }}</td>
         <td v-if="showAnswers">{{ guess.answer }}</td>
@@ -40,10 +39,9 @@
 
 <script setup lang="ts">
 import game from '~/logic/game';
+import round from '~/logic/round';
 
 defineProps<{
-  round: Round,
-  ignorePlayer?: PlayerId,
   showAnswers?: boolean,
   showTotals?: boolean
 }>();

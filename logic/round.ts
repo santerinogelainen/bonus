@@ -14,6 +14,7 @@ export const getFirstRound = (dealerId?: PlayerId) => {
 
 const round = computed<Round>(() => game.value.rounds.at(-1) || getFirstRound(''));
 export const dealer = computed<Player>(() => game.value.players[round.value.dealerId] || createPlayer());
+export const options = computed(() => [...Array(round.value.cards + 1).keys()]);
 
 export const getNextCards = () => {
   const players = game.value.playerCount;
@@ -52,5 +53,19 @@ export const getNextRound = () => {
     dealerId: getNextPlayer(round.value.dealerId).id,
   };
 }
+
+export const nextGuesser = () => {
+  if (round.value.guesses.length === game.value.playerCount) {
+    return;
+  }
+  const currentGuesserId = round.value.guesses.at(-1)?.playerId || round.value.dealerId;
+  const nextGuesser = getNextPlayer(currentGuesserId);
+  round.value.guesses.push({
+    playerId: nextGuesser.id,
+    guess: undefined,
+    answer: undefined,
+    answered: false,
+  });
+};
 
 export default round;

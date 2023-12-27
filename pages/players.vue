@@ -13,7 +13,7 @@
     </v-list-item>
   </v-list>
   <v-btn
-    v-if="game && game.playerCount < 8"
+    v-if="game && game.playerCount < maxPlayers"
     variant="text"
     @click="addPlayer"
     >Lisää pelaaja</v-btn
@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import game from "~/logic/game";
-import { addPlayer, removePlayer } from "~/logic/player";
+import { addPlayer, removePlayer, maxPlayers } from "~/logic/player";
 import { getFirstRound } from "~/logic/round";
 
 const setUnknownPlayers = () => {

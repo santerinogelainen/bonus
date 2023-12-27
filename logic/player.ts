@@ -2,6 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 import game from "./game";
 import { getRange } from "./utils";
 
+export const maxPlayers = 6;
+
 export const createPlayer = (): Player => ({
   id: uuidv4(),
   name: "",
