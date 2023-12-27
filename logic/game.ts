@@ -1,12 +1,10 @@
 export const newGame = (): Game => ({
   canSave: false,
   players: new Map<PlayerId, Player>(),
-  rounds: [],
-  maxRoundCards: 0
+  rounds: []
 });
 
 const game = ref<Game>(newGame());
-
 const gameStorageKey = "current-game";
 
 const loadGame = () => {

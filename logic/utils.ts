@@ -8,3 +8,11 @@ export const getRandomItem = <T>(array: Array<T>): T => {
   const index = getRandomInt(0, array.length - 1);
   return array[index];
 } 
+
+export const getRange = (min: number, max: number) => {
+  const list = [];
+  for (let i = min; i <= max; i++) {
+      list.push(i);
+  }
+  return list;
+}

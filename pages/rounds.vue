@@ -49,7 +49,9 @@
 
 <script setup lang="ts">
 import game from "~/logic/game";
+import { getNextPlayer } from "~/logic/player";
 import { calculatePlayerPoints, calculatePoints } from "~/logic/points";
+import round, { dealer, getNextRound } from "~/logic/round";
 
 enum RoundState {
   Deal,
@@ -59,8 +61,6 @@ enum RoundState {
   Status,
 }
 
-const round = computed(() => game.value.rounds.at(-1)!);
-const dealer = computed(() => game.value.players.get(round.value.dealerId)!);
 const guess = computed(() => round.value.guesses.at(-1));
 const guesser = computed(() =>
   guess.value ? game.value.players.get(guess.value.playerId) : undefined
@@ -91,7 +91,7 @@ const state = computed<RoundState>(() => {
   if (
     answering.value &&
     guesses === players &&
-    round.value.guesses.some((x) => x.answer === undefined)
+    round.value.guesses.some((x) => !x.answered)
   ) {
     return RoundState.Answer;
   }
@@ -99,7 +99,7 @@ const state = computed<RoundState>(() => {
   if (
     guesses === players &&
     round.value.guesses.every(
-      (x) => x.answer !== undefined && x.guess !== undefined
+      (x) => x.answered && x.guess !== undefined
     )
   ) {
     return RoundState.Status;
@@ -124,12 +124,6 @@ const answerNumber = (n: number) => {
   }
 };
 
-const getNextPlayer = (currentId: string) => {
-  const players = [...game.value.players.values()];
-  const nextGuesserIndex = players.findIndex((x) => x.id === currentId) + 1;
-  return players[nextGuesserIndex] || players[0];
-};
-
 const nextGuesser = () => {
   if (round.value.guesses.length === game.value.players.size) {
     return;
@@ -145,12 +139,14 @@ const nextGuesser = () => {
 };
 
 const nextRound = () => {
-  game.value.rounds.push({
-    id: round.value.id + 1,
-    cards: round.value.cards + 1,
-    guesses: [],
-    dealerId: getNextPlayer(round.value.dealerId).id,
-  });
+  const nextRound = getNextRound();
+
+  if (!nextRound) {
+    navigateTo("/finished");
+    return;
+  }
+
+  game.value.rounds.push(nextRound);
   answering.value = false;
 };
 </script>
