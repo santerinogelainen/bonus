@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar :elevation="2">
-      <v-app-bar-title>Bonus</v-app-bar-title>
+      <v-app-bar-title></v-app-bar-title>
     </v-app-bar>
     <v-main>
       <v-container>

@@ -42,7 +42,6 @@
     >
   </div>
   <div v-if="state === RoundState.Status">
-    <h1>Pistetilanne</h1>
     <v-btn @click="nextRound">Seuraava kierros</v-btn>
   </div>
 </template>
