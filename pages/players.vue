@@ -43,4 +43,8 @@ const continueToGame = () => {
   game.value.rounds.push(getFirstRound())
   navigateTo("/rounds");
 }
+
+useHead({
+  title: `Pelaajat - Bonus`
+});
 </script>

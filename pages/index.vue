@@ -27,4 +27,8 @@ const createNewGame = () => {
   game.value.isLoaded = true;
   navigateTo("/players");
 }
+
+useHead({
+  title: `Etusivu - Bonus`
+});
 </script>
