@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import game from "./game";
 import { getRange } from "./utils";
 
+export const minPlayers = 2;
 export const maxPlayers = 6;
 
 export const createPlayer = (): Player => ({
@@ -17,8 +18,8 @@ export const addPlayer = () => {
 }
 
 export const removePlayer = (id: PlayerId) => {
-  if (Object.keys(game.value.players).length <= 3) {
-    alert("Pelaajaa ei voida poistaa. Pelissä tulee olla vähintään 3 pelaajaa.")
+  if (Object.keys(game.value.players).length <= minPlayers) {
+    alert(`Pelaajaa ei voida poistaa. Pelissä tulee olla vähintään ${minPlayers} pelaajaa.`)
     return;
   }
   delete game.value.players[id];
