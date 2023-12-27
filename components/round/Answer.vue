@@ -3,6 +3,7 @@
     <strong>{{ answerer?.name }}</strong>
     sai:
   </h1>
+  <v-btn @click="onBack">Takaisin</v-btn>
   <v-btn
     v-for="n in options"
     @click="() => answerNumber(n)"
@@ -11,24 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import game from '~/logic/game';
-import { calculatePlayerPoints, calculatePoints } from '~/logic/points';
-import round, { options } from '~/logic/round';
+import { options } from '~/logic/round';
+import { answerer, answerNumber, unanswerNumber } from '~/logic/answer';
 
-const answer = computed(() => round.value.guesses.find((x) => !x.answered));
-const answerer = computed(() =>
-  answer.value ? game.value.players[answer.value.playerId] : undefined
-);
+const emit = defineEmits(['back']);
 
-const answerNumber = (n: number) => {
-  if (answer.value && answerer.value) {
-    answer.value.answer = n;
-    answer.value.points = calculatePoints(answer.value);
-    answerer.value.points = calculatePlayerPoints(
-      game.value.rounds,
-      answerer.value.id
-    );
-    answer.value.answered = true;
+const onBack = () => {
+  if (!unanswerNumber()) {
+    emit('back');
   }
-};
+}
 </script>

@@ -7,7 +7,7 @@
   <round-deal v-if="state === RoundState.Deal" />
   <round-guess v-if="state === RoundState.Guess" />
   <round-play v-if="state === RoundState.Play" @continue="() => (answering = true)" />
-  <round-answer v-if="state === RoundState.Answer" />
+  <round-answer v-if="state === RoundState.Answer" @back="() => (answering = false)" />
   <round-status v-if="state === RoundState.Status" @continue="() => (answering = false)" />
 </template>
 
