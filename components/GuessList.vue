@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <tr v-for="guess in round.guesses" v-show="guess.playerId !== ignorePlayer">
-        <td><strong>{{ getPlayer(guess.playerId).name }}</strong></td>
+        <td><strong>{{ game.players[guess.playerId]?.name }}</strong></td>
         <td>{{ guess.guess }}</td>
         <td v-if="showAnswers">{{ guess.answer }}</td>
         <td v-if="showAnswers">
@@ -31,7 +31,7 @@
           </span>
         </td>
         <td v-if="showTotals">
-          {{ game.players.get(guess.playerId)?.points }}
+          {{ game.players[guess.playerId]?.points }}
         </td>
       </tr>
     </tbody>
@@ -47,6 +47,4 @@ defineProps<{
   showAnswers?: boolean,
   showTotals?: boolean
 }>();
-
-const getPlayer = (id: string) => game.value.players.get(id)!;
 </script>

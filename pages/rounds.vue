@@ -63,18 +63,18 @@ enum RoundState {
 
 const guess = computed(() => round.value.guesses.at(-1));
 const guesser = computed(() =>
-  guess.value ? game.value.players.get(guess.value.playerId) : undefined
+  guess.value ? game.value.players[guess.value.playerId] : undefined
 );
 const answer = computed(() => round.value.guesses.find((x) => !x.answered));
 const answerer = computed(() =>
-  answer.value ? game.value.players.get(answer.value.playerId) : undefined
+  answer.value ? game.value.players[answer.value.playerId] : undefined
 );
 const numbers = computed(() => [...Array(round.value.cards + 1).keys()]);
 const answering = ref(false);
 
 const state = computed<RoundState>(() => {
   const guesses = round.value.guesses.length;
-  const players = game.value.players.size;
+  const players = game.value.playerCount;
 
   if (guesses === 0) {
     return RoundState.Deal;
@@ -98,9 +98,7 @@ const state = computed<RoundState>(() => {
 
   if (
     guesses === players &&
-    round.value.guesses.every(
-      (x) => x.answered && x.guess !== undefined
-    )
+    round.value.guesses.every((x) => x.answered && x.guess !== undefined)
   ) {
     return RoundState.Status;
   }
@@ -119,13 +117,16 @@ const answerNumber = (n: number) => {
   if (answer.value && answerer.value) {
     answer.value.answer = n;
     answer.value.points = calculatePoints(answer.value);
-    answerer.value.points = calculatePlayerPoints(game.value.rounds, answerer.value.id);
+    answerer.value.points = calculatePlayerPoints(
+      game.value.rounds,
+      answerer.value.id
+    );
     answer.value.answered = true;
   }
 };
 
 const nextGuesser = () => {
-  if (round.value.guesses.length === game.value.players.size) {
+  if (round.value.guesses.length === game.value.playerCount) {
     return;
   }
   const currentGuesserId = guess.value?.playerId || round.value.dealerId;

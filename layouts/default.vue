@@ -5,7 +5,12 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <slot> </slot>
+        <v-progress-circular
+          v-if="!loaded"
+          indeterminate
+          color="primary"
+        ></v-progress-circular>
+        <slot v-else> </slot>
       </v-container>
     </v-main>
   </v-app>
@@ -15,7 +20,6 @@
 import { useGameSaver, useGameLoader } from '~/logic/game';
 
 // Automatically load and save game to/from local storage
-useGameLoader();
+const loaded = useGameLoader();
 useGameSaver();
 </script>
-~/logic/game

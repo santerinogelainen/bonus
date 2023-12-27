@@ -10,11 +10,21 @@ export const createPlayer = (): Player => ({
 
 export const addPlayer = () => {
   const player = createPlayer();
-  game.value.players.set(player.id, player);
+  game.value.players[player.id] = player;
+  game.value.playerCount = Object.keys(game.value.players).length;
 }
 
+export const removePlayer = (id: PlayerId) => {
+  if (Object.keys(game.value.players).length <= 3) {
+    alert("Pelaajaa ei voida poistaa. Pelissä tulee olla vähintään 3 pelaajaa.")
+    return;
+  }
+  delete game.value.players[id];
+  game.value.playerCount = Object.keys(game.value.players).length;
+};
+
 export const getNextPlayer = (currentId: string) => {
-  const players = [...game.value.players.values()];
+  const players = Object.values(game.value.players);
   const nextGuesserIndex = players.findIndex((x) => x.id === currentId) + 1;
   return players[nextGuesserIndex] || players[0];
 };

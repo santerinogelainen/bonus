@@ -1,6 +1,7 @@
 export const newGame = (): Game => ({
-  canSave: false,
-  players: new Map<PlayerId, Player>(),
+  isLoaded: false,
+  players: {},
+  playerCount: 0,
   rounds: []
 });
 
@@ -16,7 +17,7 @@ const loadGame = () => {
 };
 
 const saveGame = () => {
-  if (game.value && game.value.canSave) {
+  if (game.value && game.value.isLoaded) {
     const json = JSON.stringify(game.value);
     localStorage.setItem(gameStorageKey, json);
   }
@@ -31,11 +32,18 @@ export const useGameSaver = () => {
 }
 
 export const useGameLoader = () => {
+  const loaded = ref(false);
+
   onMounted(() => {
-    if (!game.value.canSave) {
+    if (!loaded.value && !game.value.isLoaded) {
       loadGame();
+      console.log("Loaded game...");
     }
+
+    loaded.value = true;
   });
+
+  return loaded;
 }
 
 export default game;

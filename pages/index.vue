@@ -15,7 +15,7 @@ const createNewGame = () => {
   addPlayer();
 
   // Start automatic saves
-  game.value.canSave = true;
+  game.value.isLoaded = true;
   navigateTo("/players");
 }
 </script>~/logic/game

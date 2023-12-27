@@ -1,11 +1,22 @@
 import game from "./game";
-import { getCardCount, getNextPlayer } from "./player";
+import { createPlayer, getCardCount, getNextPlayer } from "./player";
+import { getRandomItem } from "./utils";
 
-const round = computed(() => game.value.rounds.at(-1)!);
-export const dealer = computed(() => game.value.players.get(round.value.dealerId)!);
+export const getFirstRound = (dealerId?: PlayerId) => {
+  console.log(game.value);
+  return {
+    id: 1,
+    cards: 1,
+    dealerId: dealerId || getRandomItem(Object.values(game.value.players)).id,
+    guesses: []
+  }
+};
+
+const round = computed<Round>(() => game.value.rounds.at(-1) || getFirstRound(''));
+export const dealer = computed<Player>(() => game.value.players[round.value.dealerId] || createPlayer());
 
 export const getNextCards = () => {
-  const players = game.value.players.size;
+  const players = game.value.playerCount;
   const maxCards = getCardCount(players) / players;
 
   if (round.value.id >= maxCards * 2 + 1) {

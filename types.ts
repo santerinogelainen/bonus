@@ -24,8 +24,9 @@ type Round = {
 }
 
 type Game = {
-  canSave: boolean;
-  players: Map<PlayerId, Player>;
+  isLoaded: boolean;
+  players: Record<PlayerId, Player>;
+  playerCount: number;
   rounds: Array<Round>;
 }
 
