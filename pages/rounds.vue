@@ -1,4 +1,11 @@
 <template>
+  <guess-list
+    v-if="state !== RoundState.Deal"
+    :ignore-player="state === RoundState.Guess ? guesser?.id : undefined"
+    :round="round"
+    :show-answers="state === RoundState.Answer || state === RoundState.Status"
+    :show-totals="state === RoundState.Status"
+  />
   <div v-if="state === RoundState.Deal">
     <h1>
       <strong>{{ dealer.name }}</strong>
@@ -38,17 +45,11 @@
     <h1>Pistetilanne</h1>
     <v-btn @click="nextRound">Seuraava kierros</v-btn>
   </div>
-  <guess-list
-    v-if="state !== RoundState.Deal"
-    :ignore-player="state === RoundState.Guess ? guesser?.id : undefined"
-    :round="round"
-    :show-answers="state === RoundState.Answer || state === RoundState.Status"
-    :show-totals="state === RoundState.Status"
-  />
 </template>
 
 <script setup lang="ts">
 import game from "~/logic/game";
+import { calculatePlayerPoints, calculatePoints } from "~/logic/points";
 
 enum RoundState {
   Deal,
@@ -64,9 +65,7 @@ const guess = computed(() => round.value.guesses.at(-1));
 const guesser = computed(() =>
   guess.value ? game.value.players.get(guess.value.playerId) : undefined
 );
-const answer = computed(() =>
-  round.value.guesses.find((x) => x.answer === undefined)
-);
+const answer = computed(() => round.value.guesses.find((x) => !x.answered));
 const answerer = computed(() =>
   answer.value ? game.value.players.get(answer.value.playerId) : undefined
 );
@@ -117,8 +116,11 @@ const guessNumber = (n: number) => {
 };
 
 const answerNumber = (n: number) => {
-  if (answer.value) {
+  if (answer.value && answerer.value) {
     answer.value.answer = n;
+    answer.value.points = calculatePoints(answer.value);
+    answerer.value.points = calculatePlayerPoints(game.value.rounds, answerer.value.id);
+    answer.value.answered = true;
   }
 };
 
@@ -138,6 +140,7 @@ const nextGuesser = () => {
     playerId: nextGuesser.id,
     guess: undefined,
     answer: undefined,
+    answered: false,
   });
 };
 

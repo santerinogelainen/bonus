@@ -26,12 +26,12 @@
         <td>{{ guess.guess }}</td>
         <td v-if="showAnswers">{{ guess.answer }}</td>
         <td v-if="showAnswers">
-          <span v-if="calculatePoints(guess) !== undefined">
-            {{ `+${calculatePoints(guess)} pistettä` }}
+          <span v-if="guess.points !== undefined">
+            {{ `+${guess.points} pistettä` }}
           </span>
         </td>
         <td v-if="showTotals">
-          {{ totals.get(guess.playerId)?.points }}
+          {{ game.players.get(guess.playerId)?.points }}
         </td>
       </tr>
     </tbody>
@@ -40,9 +40,6 @@
 
 <script setup lang="ts">
 import game from '~/logic/game';
-import { calculatePoints, useTotals } from '~/logic/points';
-
-const totals = useTotals();
 
 defineProps<{
   round: Round,

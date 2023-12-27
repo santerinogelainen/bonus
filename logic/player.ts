@@ -3,7 +3,8 @@ import game from "./game";
 
 export const createPlayer = (): Player => ({
   id: uuidv4(),
-  name: ""
+  name: "",
+  points: 0
 });
 
 export const addPlayer = () => {

@@ -4,12 +4,15 @@ type PlayerId = string;
 type Player = {
   id: PlayerId;
   name: string;
+  points: number;
 }
 
 type RoundGuess = {
   playerId: PlayerId;
+  answered: boolean;
   guess?: number;
   answer?: number;
+  points?: number;
 }
 
 type Round = {
