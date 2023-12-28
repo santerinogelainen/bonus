@@ -16,3 +16,7 @@ export const getRange = (min: number, max: number) => {
   }
   return list;
 }
+
+export const getSum = <T>(array: Array<T>, property: keyof T) => {
+  return array.reduce<number>((total, item) => total + (item[property] as number | undefined ?? 0), 0);
+}
