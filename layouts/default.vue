@@ -4,14 +4,12 @@
       <v-app-bar-title></v-app-bar-title>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <v-progress-circular
-          v-if="!loaded"
-          indeterminate
-          color="primary"
-        ></v-progress-circular>
-        <slot v-else> </slot>
-      </v-container>
+      <v-progress-circular
+        v-if="!loaded"
+        indeterminate
+        color="primary"
+      ></v-progress-circular>
+      <slot v-else> </slot>
     </v-main>
   </v-app>
 </template>

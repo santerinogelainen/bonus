@@ -1,4 +1,7 @@
 <template>
+  <h1>
+    Tulokset
+  </h1>
   <div class="mt-3">
     <v-btn
       :rounded="true"

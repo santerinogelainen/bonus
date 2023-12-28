@@ -8,11 +8,13 @@
       />
     </section>
     <section class="controls">
-      <round-deal v-if="state === RoundState.Deal" />
-      <round-guess v-if="state === RoundState.Guess" />
-      <round-play v-if="state === RoundState.Play" @continue="() => (answering = true)" />
-      <round-answer v-if="state === RoundState.Answer" @back="() => (answering = false)" />
-      <round-status v-if="state === RoundState.Status" @continue="() => (answering = false)" />
+      <v-container>
+        <round-deal v-if="state === RoundState.Deal" />
+        <round-guess v-if="state === RoundState.Guess" />
+        <round-play v-if="state === RoundState.Play" @continue="() => (answering = true)" />
+        <round-answer v-if="state === RoundState.Answer" @back="() => (answering = false)" />
+        <round-status v-if="state === RoundState.Status" @continue="() => (answering = false)" />
+      </v-container>
     </section>
   </div>
 </template>
@@ -28,11 +30,15 @@
   }
 
   .stats {
-    height: 40%;
+    height: 45%;
   }
 
   .controls {
-    height: 60%;
+    height: 55%;
+    box-shadow: 
+      0px -3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 
+      0px -2px 2px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 
+      0px -1px 5px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.12)) !important;
   }
 }
 </style>

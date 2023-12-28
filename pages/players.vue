@@ -9,18 +9,25 @@
         label="Anna pelaajan nimi"
         append-icon="mdi-window-close"
         @click:append="() => removePlayer(player.id)"
+        :hide-details="true"
       ></v-text-field>
     </v-list-item>
   </v-list>
-  <v-btn
-    v-if="game && game.playerCount < maxPlayers"
-    variant="text"
-    @click="addPlayer"
-    >Lisää pelaaja</v-btn
-  >
-  <v-btn @click="continueToGame">
-    Jatka
-  </v-btn>
+  <v-container>
+    <div class="mb-5">
+      <v-btn
+        v-if="game && game.playerCount < maxPlayers"
+        @click="addPlayer"
+        block
+        :rounded="true"
+        prepend-icon="mdi-plus"
+        >Lisää pelaaja</v-btn
+      >
+    </div>
+    <v-btn size="x-large" :rounded="true" block color="secondary" @click="continueToGame">
+      Jatka
+    </v-btn>
+  </v-container>
 </template>
 
 <script setup lang="ts">
