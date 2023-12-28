@@ -1,7 +1,7 @@
 <template>
   <v-table density="compact" class="mt-2">
     <tbody>
-      <tr v-for="guess in round.guesses.filter(x => x.guess !== undefined)">
+      <tr v-for="guess in round.guesses.filter(x => x.guess !== undefined)" :class="highlightPlayer === guess.playerId ? 'highlighted-guess' : undefined">
         <td><strong>{{ game.players[guess.playerId]?.name }}</strong></td>
         <td>
           <span v-if="showAnswers && guess.answer !== undefined">
@@ -22,11 +22,18 @@
   </v-table>
 </template>
 
+<style lang="scss" scoped>
+.highlighted-guess {
+  background-color: #eee;
+}
+</style>
+
 <script setup lang="ts">
 import game from '~/logic/game';
 import round from '~/logic/round';
 
 defineProps<{
+  highlightPlayer?: PlayerId
   showAnswers?: boolean
 }>();
 </script>

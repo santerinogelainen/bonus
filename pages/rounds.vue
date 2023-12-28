@@ -1,11 +1,14 @@
 <template>
   <div class="container">
     <section class="stats">
-      <round-guess-list
-        v-if="state !== RoundState.Deal"
-        :show-answers="state === RoundState.Answer || state === RoundState.Status"
-        :show-totals="state === RoundState.Status"
-      />
+      <v-container class="stats-container">
+        <round-guess-list
+          v-if="state !== RoundState.Deal"
+          :highlight-player="state === RoundState.Answer ? answerer?.id : undefined"
+          :show-answers="state === RoundState.Answer || state === RoundState.Status"
+          :show-totals="state === RoundState.Status"
+        />
+      </v-container>
     </section>
     <section class="controls">
       <v-container>
@@ -31,6 +34,12 @@
 
   .stats {
     height: 45%;
+
+    @media only screen and (max-width: 960px) {
+      .stats-container {
+        padding: 0;
+      }
+    }
   }
 
   .controls {
@@ -44,6 +53,7 @@
 </style>
 
 <script setup lang="ts">
+import { answerer } from "~/logic/answer";
 import game from "~/logic/game";
 import round from "~/logic/round";
 

@@ -19,6 +19,10 @@
 
   button {
     width: 30%;
+
+    @media only screen and (min-width: 960px) {
+      width: auto;
+    }
   }
 }
 </style>
