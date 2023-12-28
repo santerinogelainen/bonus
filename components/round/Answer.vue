@@ -3,12 +3,11 @@
     <strong>{{ answerer?.name }}</strong>
     sai:
   </h1>
-  <v-btn @click="onBack">Takaisin</v-btn>
-  <v-btn
-    v-for="n in possibleOptions"
-    @click="() => answerNumber(n)"
-    >{{ n }}</v-btn
-  >
+  <round-options
+    :options="possibleOptions"
+    @click="answerNumber"
+  />
+  <round-back @click="onBack" />
 </template>
 
 <script setup lang="ts">

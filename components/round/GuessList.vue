@@ -9,28 +9,26 @@
           Arvaus
         </th>
         <th class="text-left" v-if="showAnswers">
-          Tulos
-        </th>
-        <th class="text-left" v-if="showAnswers">
-          Pisteet (kierros)
-        </th>
-        <th class="text-left" v-if="showTotals">
-          Pisteet (yht.)
+          Pisteet
         </th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="guess in round.guesses.filter(x => x.guess !== undefined)">
         <td><strong>{{ game.players[guess.playerId]?.name }}</strong></td>
-        <td>{{ guess.guess }}</td>
-        <td v-if="showAnswers">{{ guess.answer }}</td>
-        <td v-if="showAnswers">
-          <span v-if="guess.points !== undefined">
-            {{ `+${guess.points} pistettä` }}
+        <td>
+          <span v-if="showAnswers && guess.answer !== undefined">
+            {{ guess.answer }}/{{ guess.guess }}
+          </span>
+          <span v-else>
+            {{ guess.guess }}
           </span>
         </td>
-        <td v-if="showTotals">
-          {{ game.players[guess.playerId]?.points }}
+        <td v-if="showAnswers">
+          <span v-if="guess.points !== undefined">
+            {{ game.players[guess.playerId]?.points }}
+            {{ ` (+${guess.points})` }}
+          </span>
         </td>
       </tr>
     </tbody>
@@ -42,7 +40,6 @@ import game from '~/logic/game';
 import round from '~/logic/round';
 
 defineProps<{
-  showAnswers?: boolean,
-  showTotals?: boolean
+  showAnswers?: boolean
 }>();
 </script>

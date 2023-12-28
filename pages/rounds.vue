@@ -1,15 +1,41 @@
 <template>
-  <round-guess-list
-    v-if="state !== RoundState.Deal"
-    :show-answers="state === RoundState.Answer || state === RoundState.Status"
-    :show-totals="state === RoundState.Status"
-  />
-  <round-deal v-if="state === RoundState.Deal" />
-  <round-guess v-if="state === RoundState.Guess" />
-  <round-play v-if="state === RoundState.Play" @continue="() => (answering = true)" />
-  <round-answer v-if="state === RoundState.Answer" @back="() => (answering = false)" />
-  <round-status v-if="state === RoundState.Status" @continue="() => (answering = false)" />
+  <div class="container">
+    <section class="stats">
+      <round-guess-list
+        v-if="state !== RoundState.Deal"
+        :show-answers="state === RoundState.Answer || state === RoundState.Status"
+        :show-totals="state === RoundState.Status"
+      />
+    </section>
+    <section class="controls">
+      <round-deal v-if="state === RoundState.Deal" />
+      <round-guess v-if="state === RoundState.Guess" />
+      <round-play v-if="state === RoundState.Play" @continue="() => (answering = true)" />
+      <round-answer v-if="state === RoundState.Answer" @back="() => (answering = false)" />
+      <round-status v-if="state === RoundState.Status" @continue="() => (answering = false)" />
+    </section>
+  </div>
 </template>
+
+<style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+
+  section {
+    overflow-y: auto;
+  }
+
+  .stats {
+    height: 40%;
+  }
+
+  .controls {
+    height: 60%;
+  }
+}
+</style>
 
 <script setup lang="ts">
 import game from "~/logic/game";
@@ -61,5 +87,4 @@ const state = computed<RoundState>(() => {
 useHead({
   title: `Kierros ${round.value.id} - Bonus`
 });
-
 </script>
