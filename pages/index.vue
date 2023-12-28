@@ -8,7 +8,9 @@ import game, { newGame } from '~/logic/game';
 import { addPlayer } from '~/logic/player';
 
 const continueGame = () => {
-  if (game.value.rounds.length > 0) {
+  if (game.value.isFinished) {
+    navigateTo("/finished");
+  } else if (game.value.rounds.length > 0) {
     navigateTo("/rounds");
   } else {
     navigateTo("/players");

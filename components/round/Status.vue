@@ -14,6 +14,7 @@ const nextRound = () => {
   const nextRound = getNextRound();
 
   if (!nextRound) {
+    game.value.isFinished = true;
     navigateTo("/finished");
     return;
   }

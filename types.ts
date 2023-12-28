@@ -25,6 +25,7 @@ type Round = {
 
 type Game = {
   isLoaded: boolean;
+  isFinished: boolean;
   players: Record<PlayerId, Player>;
   playerCount: number;
   rounds: Array<Round>;
