@@ -51,7 +51,5 @@ const continueToGame = () => {
   navigateTo("/rounds");
 }
 
-useHead({
-  title: `Pelaajat - Bonus`
-});
+definePageMeta({title: `Pelaajat`});
 </script>

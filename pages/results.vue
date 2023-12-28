@@ -57,7 +57,5 @@ const getData = () => {
   return data;
 }
 
-useHead({
-  title: `Tulokset - Bonus`
-});
+definePageMeta({title: `Tulokset`});
 </script>

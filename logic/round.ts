@@ -3,11 +3,10 @@ import { createPlayer, getCardCount, getNextPlayer } from "./player";
 import { getRandomItem } from "./utils";
 
 export const getFirstRound = (dealerId?: PlayerId) => {
-  console.log(game.value);
   return {
     id: 1,
     cards: 1,
-    dealerId: dealerId || getRandomItem(Object.values(game.value.players)).id,
+    dealerId: dealerId || getRandomItem(Object.values(game.value.players))?.id,
     guesses: []
   }
 };

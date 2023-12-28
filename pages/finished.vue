@@ -3,7 +3,5 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: `Tulokset - Bonus`
-});
+definePageMeta({title: `Tulokset`});
 </script>

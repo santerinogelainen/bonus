@@ -90,7 +90,5 @@ const state = computed<RoundState>(() => {
   return RoundState.Play;
 });
 
-useHead({
-  title: `Kierros ${round.value.id} - Bonus`
-});
+definePageMeta({title: () => `Kierros ${round.value.id}`});
 </script>

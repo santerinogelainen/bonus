@@ -1,13 +1,13 @@
 <template>
   <v-container>
     <v-btn
+      v-if="game.isLoaded"
       size="x-large"
       block
-      @click="continueGame"
+      :to="getContinueGamePath()"
       class="mt-3"
       :rounded="true"
       color="secondary"
-      v-if="game.isLoaded"
       >Jatka peliä</v-btn
     >
     <v-btn
@@ -22,18 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import game, { newGame } from "~/logic/game";
+import game, { newGame, getContinueGamePath } from "~/logic/game";
 import { addPlayer } from "~/logic/player";
-
-const continueGame = () => {
-  if (game.value.isFinished) {
-    navigateTo("/finished");
-  } else if (game.value.rounds.length > 0) {
-    navigateTo("/rounds");
-  } else {
-    navigateTo("/players");
-  }
-};
 
 const createNewGame = () => {
   game.value = newGame();
@@ -48,7 +38,5 @@ const createNewGame = () => {
   navigateTo("/players");
 };
 
-useHead({
-  title: `Etusivu - Bonus`,
-});
+definePageMeta({title: `Etusivu`});
 </script>

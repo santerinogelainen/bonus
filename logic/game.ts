@@ -1,5 +1,6 @@
 export const newGame = (): Game => ({
   isLoaded: false,
+  isFinished: false,
   players: {},
   playerCount: 0,
   rounds: []
@@ -20,6 +21,16 @@ const saveGame = () => {
   if (game.value && game.value.isLoaded) {
     const json = JSON.stringify(game.value);
     localStorage.setItem(gameStorageKey, json);
+  }
+}
+
+export const getContinueGamePath = () => {
+  if (game.value.isFinished) {
+    return "/finished";
+  } else if (game.value.rounds.length > 0) {
+    return "/rounds";
+  } else {
+    return "/players";
   }
 }
 
