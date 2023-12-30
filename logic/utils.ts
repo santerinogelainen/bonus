@@ -20,3 +20,7 @@ export const getRange = (min: number, max: number) => {
 export const getSum = <T>(array: Array<T>, property: keyof T) => {
   return array.reduce<number>((total, item) => total + (item[property] as number | undefined ?? 0), 0);
 }
+
+export const sortBy = <T>(array: Array<T>, property: keyof T) => {
+  return array.sort((a, b) => (a[property] as number || 0) - (b[property] as number || 0));
+}
