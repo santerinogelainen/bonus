@@ -1,6 +1,7 @@
 import game from "./game";
 import { createPlayer, getCardCount, getNextPlayer } from "./player";
 import { getRandomItem } from "./utils";
+import { Suit } from "~/enums";
 
 export const getFirstRound = (dealerId?: PlayerId) => {
   return {
@@ -15,10 +16,7 @@ const round = computed<Round>(() => game.value.rounds.at(-1) || getFirstRound(''
 export const dealer = computed<Player>(() => game.value.players[round.value.dealerId] || createPlayer());
 export const options = computed(() => [...Array(round.value.cards + 1).keys()]);
 
-export const getNextCards = () => {
-  const players = game.value.playerCount;
-  const maxCards = getCardCount(players) / players;
-
+const getNextCards = (maxCards: number) => {
   if (round.value.id >= maxCards * 2 + 1) {
     return undefined;
   }
@@ -38,19 +36,27 @@ export const getNextCards = () => {
   return maxCards;
 }
 
-export const getNextRound = () => {
-  const cards = getNextCards();
+export const getNextRound = (): Round | undefined => {
+  const players = game.value.playerCount;
+  const maxCards = getCardCount(players) / players;
+  const cards = getNextCards(maxCards);
 
   if (cards === undefined) {
     return undefined;
   }
 
-  return {
+  const newRound: Round = {
     id: round.value.id + 1,
     cards,
     guesses: [],
-    dealerId: getNextPlayer(round.value.dealerId).id,
+    dealerId: getNextPlayer(round.value.dealerId).id
   };
+
+  if (cards === maxCards) {
+    newRound.suit = getRandomItem(Object.values(Suit))
+  }
+
+  return newRound;
 }
 
 export const nextGuesser = () => {

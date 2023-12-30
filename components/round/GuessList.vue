@@ -1,5 +1,5 @@
 <template>
-  <v-table density="compact" class="mt-2">
+  <v-table density="compact">
     <tbody>
       <tr v-for="guess in round.guesses.filter(x => x.guess !== undefined)" :class="highlightPlayer === guess.playerId ? 'highlighted-guess' : undefined">
         <td><strong>{{ game.players[guess.playerId]?.name }}</strong></td>

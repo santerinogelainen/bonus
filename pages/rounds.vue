@@ -2,6 +2,16 @@
   <div class="container">
     <section class="stats">
       <v-container class="stats-container">
+        <v-banner v-if="round.suit !== undefined" density="compact">
+          <template #prepend>
+            <v-icon :color="round.suit === 'diamond' || round.suit === 'heart' ? 'red' : undefined">
+              mdi-cards-{{ round.suit }}
+            </v-icon>
+          </template>
+          <v-banner-text>
+            Satunnaisesti valittu valtti
+          </v-banner-text>
+        </v-banner>
         <round-guess-list
           v-if="state !== RoundState.Deal"
           :highlight-player="state === RoundState.Answer ? answerer?.id : undefined"
@@ -34,6 +44,7 @@
 
   .stats {
     height: 45%;
+    padding-top: .25em;
 
     @media only screen and (max-width: 960px) {
       .stats-container {
