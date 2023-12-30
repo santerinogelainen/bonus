@@ -33,11 +33,11 @@ export const getNextPlayer = (currentId: string) => {
 };
 
 export const getCardRange = (playerCount: number) => {
-  if (playerCount <= 4) {
-    return getRange(6, 14);
+  if (playerCount === 5) {
+    return getRange(5, 14);
   }
-
-  return getRange(5, 14);
+  
+  return getRange(6, 14);
 }
 
 export const getCardCount = (playerCount: number) => {
