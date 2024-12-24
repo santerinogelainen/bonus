@@ -1,3 +1,5 @@
+import type { Game } from "~/types";
+
 export const newGame = (): Game => ({
   isLoaded: false,
   isFinished: false,

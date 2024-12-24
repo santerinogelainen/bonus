@@ -1,3 +1,5 @@
+import type { PlayerId, Round, RoundGuess } from "~/types";
+
 export const calculatePoints = (guess: RoundGuess): number | undefined => {
   if (guess.answer === undefined || guess.guess === undefined) {
     return undefined;

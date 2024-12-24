@@ -1,3 +1,4 @@
+import type { Player, PlayerId, Round } from "~/types";
 import game from "./game";
 import { createPlayer, getCardCount, getNextPlayer } from "./player";
 import { getRandomItem } from "./utils";

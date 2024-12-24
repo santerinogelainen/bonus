@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import game from "./game";
 import { getRange } from "./utils";
+import type { Player, PlayerId } from "~/types";
 
 export const minPlayers = 2;
 export const maxPlayers = 6;

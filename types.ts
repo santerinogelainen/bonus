@@ -1,13 +1,13 @@
-type Suit = "diamond" | "heart" | "club" | "spade";
-type PlayerId = string;
+export type Suit = "diamond" | "heart" | "club" | "spade";
+export type PlayerId = string;
 
-type Player = {
+export type Player = {
   id: PlayerId;
   name: string;
   points: number;
 }
 
-type RoundGuess = {
+export type RoundGuess = {
   playerId: PlayerId;
   answered: boolean;
   guess?: number;
@@ -15,7 +15,7 @@ type RoundGuess = {
   points?: number;
 }
 
-type Round = {
+export type Round = {
   id: number;
   cards: number;
   guesses: Array<RoundGuess>;
@@ -23,7 +23,12 @@ type Round = {
   suit?: Suit;
 }
 
-type Game = {
+export type RoundResult = {
+  cards: number;
+  guesses: Map<PlayerId, RoundGuess>;
+}
+
+export type Game = {
   isLoaded: boolean;
   isFinished: boolean;
   players: Record<PlayerId, Player>;
@@ -31,7 +36,7 @@ type Game = {
   rounds: Array<Round>;
 }
 
-type GameTotals = {
+export type GameTotals = {
   playerId: string;
   points: number;
 }
