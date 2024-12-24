@@ -1,8 +1,7 @@
-import type { Game } from "~/types";
+import type { Game, GameState } from "~/types";
 
 export const newGame = (): Game => ({
-  isLoaded: false,
-  isFinished: false,
+  state: 'initializing',
   players: {},
   playerCount: 0,
   rounds: []
@@ -10,6 +9,7 @@ export const newGame = (): Game => ({
 
 const game = ref<Game>(newGame());
 const gameStorageKey = "current-game";
+export const gameRoute = computed(() => getGameRoute(game.value.state));
 
 const loadGame = () => {
   const json = localStorage.getItem(gameStorageKey);
@@ -20,19 +20,19 @@ const loadGame = () => {
 };
 
 const saveGame = () => {
-  if (game.value && game.value.isLoaded) {
+  if (game.value && game.value.state !== 'initializing') {
     const json = JSON.stringify(game.value);
     localStorage.setItem(gameStorageKey, json);
   }
 }
 
-export const getContinueGamePath = () => {
-  if (game.value.isFinished) {
+export const getGameRoute = (state: GameState) => {
+  if (state === "finished") {
     return "/finished";
-  } else if (game.value.rounds.length > 0) {
-    return "/rounds";
-  } else {
+  } else if (state === "players") {
     return "/players";
+  } else {
+    return "/rounds";
   }
 }
 
@@ -48,9 +48,8 @@ export const useGameLoader = () => {
   const loaded = ref(false);
 
   onMounted(() => {
-    if (!loaded.value && !game.value.isLoaded) {
+    if (!loaded.value && game.value.state === "initializing") {
       loadGame();
-      console.log("Loaded game...");
     }
 
     loaded.value = true;

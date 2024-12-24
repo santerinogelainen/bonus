@@ -1,19 +1,20 @@
 import type { Player, PlayerId, Round } from "~/types";
 import game from "./game";
-import { createPlayer, getCardCount, getNextPlayer } from "./player";
+import { createPlayer, getCardCount, getNextPlayer } from "./players";
 import { getRandomItem } from "./utils";
 import { Suit } from "~/enums";
+import { nextGuesser } from "./guess";
 
-export const getFirstRound = (dealerId?: PlayerId) => {
+const getFirstRound = () => {
   return {
     id: 1,
     cards: 1,
-    dealerId: dealerId || getRandomItem(Object.values(game.value.players))?.id,
+    dealerId: getRandomItem(Object.values(game.value.players))?.id,
     guesses: []
   }
 };
 
-const round = computed<Round>(() => game.value.rounds.at(-1) || getFirstRound(''));
+const round = computed<Round>(() => game.value.rounds.at(-1) || getFirstRound());
 export const dealer = computed<Player>(() => game.value.players[round.value.dealerId] || createPlayer());
 export const options = computed(() => [...Array(round.value.cards + 1).keys()]);
 
@@ -37,7 +38,7 @@ const getNextCards = (maxCards: number) => {
   return maxCards;
 }
 
-export const getNextRound = (): Round | undefined => {
+const getNextRound = (): Round | undefined => {
   const players = game.value.playerCount;
   const maxCards = getCardCount(players) / players;
   const cards = getNextCards(maxCards);
@@ -60,18 +61,18 @@ export const getNextRound = (): Round | undefined => {
   return newRound;
 }
 
-export const nextGuesser = () => {
-  if (round.value.guesses.length === game.value.playerCount) {
-    return;
+export const nextRound = () => {
+  const nextRound = getNextRound();
+  if (nextRound) {
+    game.value.rounds.push(nextRound);
+    return nextGuesser();
   }
-  const currentGuesserId = round.value.guesses.at(-1)?.playerId || round.value.dealerId;
-  const nextGuesser = getNextPlayer(currentGuesserId);
-  round.value.guesses.push({
-    playerId: nextGuesser.id,
-    guess: undefined,
-    answer: undefined,
-    answered: false,
-  });
-};
+  return false;
+}
+
+export const firstRound = () => {
+  game.value.rounds.push(getFirstRound());
+  return nextGuesser();
+}
 
 export default round;

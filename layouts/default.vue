@@ -16,24 +16,17 @@
       </v-app-bar-title>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      temporary
-    >
+    <v-navigation-drawer v-model="drawer" temporary>
       <v-list nav>
+        <v-list-item prepend-icon="mdi-home" to="/">Etusivu</v-list-item>
         <v-list-item
-          prepend-icon="mdi-home"
-          to="/"
-          >Etusivu</v-list-item
-        >
-        <v-list-item
-          v-if="game.isLoaded"
+          v-if="game.state !== 'initializing'"
           prepend-icon="mdi-play"
-          :to="getContinueGamePath()"
+          :to="gameRoute"
           >Jatka peliä</v-list-item
         >
         <v-list-item
-          v-if="game.isLoaded"
+          v-if="game.state !== 'initializing'"
           prepend-icon="mdi-chart-bar"
           to="/results"
           >Tulokset</v-list-item
@@ -53,17 +46,17 @@
 </template>
 
 <script setup lang="ts">
-import game, { useGameSaver, useGameLoader, getContinueGamePath } from "~/logic/game";
+import game, { useGameSaver, useGameLoader, gameRoute } from "~/logic/game";
 
 const route = useRoute();
 const title = computed(() => {
-  const value = route.meta.title as string | (() => string) | undefined
+  const value = route.meta.title as string | (() => string) | undefined;
 
   if (value === undefined) {
     return undefined;
   }
 
-  if (typeof value === 'function') {
+  if (typeof value === "function") {
     return value();
   }
 
@@ -77,7 +70,7 @@ useGameSaver();
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Bonus` : 'Bonus';
-  }
-})
+    return titleChunk ? `${titleChunk} - Bonus` : "Bonus";
+  },
+});
 </script>

@@ -1,9 +1,6 @@
 <template>
   <v-list>
-    <v-list-item
-      v-for="player in Object.values(game.players)"
-      :key="player.id"
-    >
+    <v-list-item v-for="player in Object.values(game.players)" :key="player.id">
       <v-text-field
         v-model="player.name"
         label="Anna pelaajan nimi"
@@ -24,7 +21,13 @@
         >Lisää pelaaja</v-btn
       >
     </div>
-    <v-btn size="x-large" :rounded="true" block color="secondary" @click="continueToGame">
+    <v-btn
+      size="x-large"
+      :rounded="true"
+      block
+      color="secondary"
+      @click="nextState"
+    >
       Jatka
     </v-btn>
   </v-container>
@@ -32,24 +35,9 @@
 
 <script setup lang="ts">
 import game from "~/logic/game";
-import { addPlayer, removePlayer, maxPlayers } from "~/logic/player";
-import { getFirstRound } from "~/logic/round";
+import { addPlayer, removePlayer, maxPlayers } from "~/logic/players";
+import { nextState } from "~/logic/state";
 
-const setUnknownPlayers = () => {
-  let index = 1;
-  Object.values(game.value.players).forEach((player) => {
-    if (!player.name) {
-      player.name = `Pelaaja ${index}`
-    }
-    index++;
-  });
-}
 
-const continueToGame = () => {
-  setUnknownPlayers();
-  game.value.rounds.push(getFirstRound())
-  navigateTo("/rounds");
-}
-
-definePageMeta({title: `Pelaajat`});
+definePageMeta({ title: `Pelaajat` });
 </script>

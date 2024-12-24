@@ -45,3 +45,13 @@ export const getCardCount = (playerCount: number) => {
   const range = getCardRange(playerCount);
   return range.length * 4; // 4 suits
 }
+
+export const setUnknownPlayers = () => {
+  let index = 1;
+  Object.values(game.value.players).forEach((player) => {
+    if (!player.name) {
+      player.name = `Pelaaja ${index}`
+    }
+    index++;
+  });
+}

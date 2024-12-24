@@ -3,10 +3,10 @@
     <strong>{{ guesser?.name }}</strong>
     arvaa:
   </h1>
-  <round-options
+  <round-keyboard
     :options="options"
     :is-disabled="isDisabled"
-    @click="guessNumber"
+    @click="onGuess"
   />
   <round-back @click="unguessNumber" />
 </template>
@@ -15,6 +15,7 @@
 import game from "~/logic/game";
 import { guesser, guessNumber, unguessNumber } from "~/logic/guess";
 import round, { options } from "~/logic/round";
+import { nextState } from "~/logic/state";
 import { getSum } from "~/logic/utils";
 
 const isDisabled = (option: number) => {
@@ -29,5 +30,10 @@ const isDisabled = (option: number) => {
     return diff === option;
   }
   return false;
+};
+
+const onGuess = (n: number) => {
+  guessNumber(n);
+  nextState();
 };
 </script>

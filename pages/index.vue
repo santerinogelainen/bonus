@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-btn
-      v-if="game.isLoaded"
+      v-if="game.state !== 'initializing'"
       size="x-large"
       block
-      :to="getContinueGamePath()"
+      :to="gameRoute"
       class="mt-3"
       :rounded="true"
       color="secondary"
@@ -22,8 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import game, { newGame, getContinueGamePath } from "~/logic/game";
-import { addPlayer } from "~/logic/player";
+import game, { newGame, gameRoute } from "~/logic/game";
+import { addPlayer } from "~/logic/players";
+import { nextState } from "~/logic/state";
 
 const createNewGame = () => {
   game.value = newGame();
@@ -33,9 +34,8 @@ const createNewGame = () => {
   addPlayer();
   addPlayer();
 
-  // Start automatic saves
-  game.value.isLoaded = true;
-  navigateTo("/players");
+  // Start automatic saves and go to players
+  nextState();
 };
 
 definePageMeta({title: `Etusivu`});

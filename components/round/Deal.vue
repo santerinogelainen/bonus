@@ -11,12 +11,13 @@
       size="x-large"
       color="secondary"
       block
-      @click="nextGuesser"
+      @click="nextState"
       >Kortit on jaettu</v-btn
     >
   </div>
 </template>
 
 <script setup lang="ts">
-import round, { dealer, nextGuesser } from "~/logic/round";
+import round, { dealer } from "~/logic/round";
+import { nextState } from "~/logic/state";
 </script>

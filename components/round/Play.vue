@@ -7,7 +7,7 @@
       size="x-large"
       color="secondary"
       block
-      @click="() => emit('continue')"
+      @click="nextState"
       >Tulokset</v-btn
     >
   </div>
@@ -16,5 +16,5 @@
 
 <script setup lang="ts">
 import { unguessNumber } from "~/logic/guess";
-const emit = defineEmits(["continue"]);
+import { nextState } from "~/logic/state";
 </script>
