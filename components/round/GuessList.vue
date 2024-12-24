@@ -30,11 +30,11 @@
 
 <script setup lang="ts">
 import game from '~/logic/game';
-import round from '~/logic/round';
 import GuessResult from './GuessResult.vue';
-import type { PlayerId } from '~/types';
+import type { PlayerId, Round } from '~/types';
 
 defineProps<{
+  round: Round;
   highlightPlayer?: PlayerId
   showAnswers?: boolean
 }>();

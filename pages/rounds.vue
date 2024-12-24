@@ -4,6 +4,7 @@
       <v-container class="stats-container">
         <round-trump-card />
         <round-guess-list
+          :round="listRound"
           :highlight-player="state === 'answer' ? answerer?.id : undefined"
           :show-answers="state === 'answer' || state === 'deal'"
         />
@@ -23,8 +24,13 @@
 
 <script setup lang="ts">
 import { answerer } from "~/logic/answer";
+import game from "~/logic/game";
 import round from "~/logic/round";
 import state from "~/logic/state";
+
+const listRound = computed(() =>
+  state.value === "deal" ? game.value.rounds.at(-2) || round.value : round.value
+);
 
 definePageMeta({ title: () => `Kierros ${round.value.id}` });
 </script>
