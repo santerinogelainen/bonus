@@ -9,7 +9,8 @@ export const maxPlayers = 6;
 export const createPlayer = (): Player => ({
   id: uuidv4(),
   name: "",
-  points: 0
+  points: 0,
+  placement: 0
 });
 
 export const addPlayer = () => {

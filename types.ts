@@ -13,6 +13,7 @@ export type Player = {
   id: PlayerId;
   name: string;
   points: number;
+  placement: number;
 };
 
 export type RoundGuess = {

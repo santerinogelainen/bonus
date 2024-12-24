@@ -2,19 +2,16 @@
   <v-table>
     <tbody>
       <tr v-for="guess in round.guesses.filter(x => x.guess !== undefined)" :class="highlightPlayer === guess.playerId ? 'highlighted-guess' : undefined">
-        <td><strong>{{ game.players[guess.playerId]?.name }}</strong></td>
         <td>
-          <span v-if="showAnswers && guess.answer !== undefined">
-            <guess-result :guess="guess" />
-          </span>
-          <span v-else>
-            {{ guess.guess }}
-          </span>
+          <strong>{{ game.players[guess.playerId].name }}</strong>
         </td>
-        <td v-if="showAnswers">
-          <span v-if="guess.points !== undefined">
+        <td class="td-auto">
+          <guess-result :guess="guess" />
+        </td>
+        <td v-if="showAnswers" class="td-auto">
+          <span>
             <b>{{ game.players[guess.playerId]?.points }}</b>
-            {{ ` (+${guess.points})` }}
+            <span v-if="guess.points !== undefined">{{ ` (+${guess.points})` }}</span>
           </span>
         </td>
       </tr>
@@ -24,7 +21,12 @@
 
 <style lang="scss" scoped>
 .highlighted-guess {
-  background-color: #eee;
+  background-color: #E3F2FD;
+}
+
+.td-auto {
+  width: 1%;
+  white-space: nowrap;
 }
 </style>
 

@@ -1,6 +1,6 @@
 import round from '~/logic/round';
 import game from './game';
-import { calculatePlayerPoints, calculatePoints } from './points';
+import { calculatePlacements, calculatePlayerPoints, calculatePoints } from './points';
 
 const answer = computed(() => round.value.guesses.find((x) => !x.answered));
 export const answerer = computed(() =>
@@ -16,6 +16,7 @@ export const answerNumber = (n: number) => {
       answerer.value.id
     );
     answer.value.answered = true;
+    calculatePlacements()
   }
 };
 
@@ -32,6 +33,7 @@ export const unanswerNumber = (): boolean => {
       game.value.rounds,
       lastAnswerer.id
     );
+    calculatePlacements()
     return true;
   }
 

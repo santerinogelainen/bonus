@@ -1,6 +1,9 @@
 <template>
-  <span class="guess-result" v-if="guess?.answer !== undefined">
-    <v-chip :color="color" :append-icon="icon">{{ guess?.answer }}/{{ guess?.guess }}</v-chip>
+  <span class="guess-result" v-if="guess?.answer !== undefined || guess?.guess !== undefined">
+    <v-chip :color="color" :append-icon="icon">
+      <span v-if="guess?.answer !== undefined">{{ guess?.answer }}/</span>
+      {{ guess?.guess }}
+    </v-chip>
   </span>
 </template>
 

@@ -7,10 +7,7 @@
         :subtitle="`${player.points} pistettä`"
       >
         <template #prepend>
-          <v-icon large color="#ccad00" v-if="i === 0">mdi-trophy</v-icon>
-          <v-icon large color="#969696" v-if="i === 1">mdi-trophy-outline</v-icon>
-          <v-icon large color="#b54a14" v-if="i === 2">mdi-trophy-outline</v-icon>
-          <v-icon large v-if="i >= 3">mdi-numeric-{{ i }}</v-icon>
+          <trophy :placement="i" large />
         </template>
       </v-list-item>
     </v-list>
@@ -37,6 +34,7 @@
 
 <script setup lang="ts">
 import game from "~/logic/game";
+import Trophy from "~/components/Trophy.vue";
 import { sortBy } from "~/logic/utils";
 
 const results = computed(() =>
