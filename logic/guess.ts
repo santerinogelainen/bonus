@@ -39,7 +39,6 @@ export const guessNumber = (n: number) => {
 };
 
 export const unguessNumber = (): boolean => {
-  console.log(guess.value, round.value.guesses)
   if (!guess.value) {
     return false;
   }
