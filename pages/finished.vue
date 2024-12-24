@@ -13,7 +13,7 @@
     </v-list>
     <div class="mt-2">
       <v-btn
-        :rounded="true"
+        rounded="lg"
         size="x-large"
         color="secondary"
         block
@@ -25,7 +25,7 @@
         block
         to="/"
         class="mt-3"
-        :rounded="true"
+        rounded="lg"
         >Takaisin etusivulle</v-btn
       >
     </div>

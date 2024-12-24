@@ -6,7 +6,7 @@
       block
       :to="gameRoute"
       class="mt-3"
-      :rounded="true"
+      rounded="lg"
       color="secondary"
       >Jatka peliä</v-btn
     >
@@ -15,7 +15,7 @@
       block
       @click="createNewGame"
       class="mt-3"
-      :rounded="true"
+      rounded="lg"
       >Uusi peli</v-btn
     >
   </v-container>

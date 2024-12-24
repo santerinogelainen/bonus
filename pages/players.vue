@@ -16,14 +16,14 @@
         v-if="game && game.playerCount < maxPlayers"
         @click="addPlayer"
         block
-        :rounded="true"
+        rounded="lg"
         prepend-icon="mdi-plus"
         >Lisää pelaaja</v-btn
       >
     </div>
     <v-btn
       size="x-large"
-      :rounded="true"
+      rounded="lg"
       block
       color="secondary"
       @click="nextState"

@@ -7,7 +7,7 @@
   </h1>
   <div class="mt-3">
     <v-btn
-      :rounded="true"
+      rounded="lg"
       size="x-large"
       color="secondary"
       block

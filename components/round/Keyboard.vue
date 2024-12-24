@@ -6,7 +6,7 @@
       @click="() => emit('click', n)" 
       size="x-large"
       color="secondary"
-      :rounded="true"
+      rounded="lg"
       >{{ n }}</v-btn>
   </div>
 </template>
