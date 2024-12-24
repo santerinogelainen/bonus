@@ -11,10 +11,11 @@
       >Tulokset</v-btn
     >
   </div>
-  <round-back @click="unguessNumber" />
+  <round-back @click="onBack" />
 </template>
 
 <script setup lang="ts">
-import { unguessNumber } from "~/logic/guess";
-import { nextState } from "~/logic/state";
+import { nextState, previousState } from "~/logic/state";
+
+const onBack = () => previousState();
 </script>

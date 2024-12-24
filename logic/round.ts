@@ -65,14 +65,13 @@ export const nextRound = () => {
   const nextRound = getNextRound();
   if (nextRound) {
     game.value.rounds.push(nextRound);
-    return nextGuesser();
+    return true;
   }
   return false;
 }
 
 export const firstRound = () => {
   game.value.rounds.push(getFirstRound());
-  return nextGuesser();
 }
 
 export default round;

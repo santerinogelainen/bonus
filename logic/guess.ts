@@ -39,12 +39,17 @@ export const guessNumber = (n: number) => {
 };
 
 export const unguessNumber = (): boolean => {
+  console.log(guess.value, round.value.guesses)
   if (!guess.value) {
     return false;
   }
 
   if (guess.value.guess === undefined) {
     round.value.guesses.pop();
+  }
+
+  if (round.value.guesses.length === 0) {
+    return false;
   }
 
   guess.value.guess = undefined;

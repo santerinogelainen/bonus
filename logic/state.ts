@@ -2,7 +2,8 @@ import type { GameState } from "~/types";
 import game, { getGameRoute } from "./game";
 import round, { firstRound, nextRound } from "./round";
 import { setUnknownPlayers } from "./players";
-import { nextGuesser } from "./guess";
+import { nextGuesser, unguessNumber } from "./guess";
+import { unanswerNumber } from "./answer";
 
 type NextGameStateHandler = () => GameState;
 
@@ -11,14 +12,17 @@ const state = computed({
   set: (val) => game.value.state = val 
 });
 
-const stateHandlers: Record<GameState, NextGameStateHandler> = {
+const nextStateHandlers: Record<GameState, NextGameStateHandler> = {
   initializing: () => "players",
   players: () => {
     setUnknownPlayers();
     firstRound();
     return "deal";
   },
-  deal: () => "guess",
+  deal: () => {
+    nextGuesser();
+    return "guess"
+  },
   guess: () => nextGuesser() ? "guess" : "play",
   play: () => "answer",
   answer: () => {
@@ -31,7 +35,28 @@ const stateHandlers: Record<GameState, NextGameStateHandler> = {
 }
 
 export const nextState = () => {
-  const handler = stateHandlers[state.value];
+  const handler = nextStateHandlers[state.value];
+  const newState = handler();
+  const newRoute = getGameRoute(newState)
+  state.value = newState;
+  navigateTo(newRoute);
+}
+
+const previousStateHandlers: Record<GameState, NextGameStateHandler> = {
+  initializing: () => "players",
+  players: () => "players",
+  deal: () => "guess",
+  guess: () => unguessNumber() ? "guess" : "deal",
+  play: () => {
+    unguessNumber();
+    return "guess";
+  },
+  answer: () => unanswerNumber() ? "answer" : "play",
+  finished: () => "finished"
+}
+
+export const previousState = () => {
+  const handler = previousStateHandlers[state.value];
   const newState = handler();
   const newRoute = getGameRoute(newState)
   state.value = newState;

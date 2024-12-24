@@ -9,16 +9,12 @@
 
 <script setup lang="ts">
 import round, { options } from "~/logic/round";
-import { answerer, answerNumber, unanswerNumber } from "~/logic/answer";
+import { answerer, answerNumber } from "~/logic/answer";
 import { getSum } from "~/logic/utils";
-import { nextState } from "~/logic/state";
-
-const emit = defineEmits(["back"]);
+import { nextState, previousState } from "~/logic/state";
 
 const onBack = () => {
-  if (!unanswerNumber()) {
-    emit("back");
-  }
+  previousState();
 };
 
 const onAnswer = (n: number) => {
