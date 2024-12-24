@@ -1,8 +1,8 @@
 <template>
-  <v-table density="compact" fixed-header height="80vh">
+  <v-table fixed-header height="80vh">
     <thead>
       <tr>
-        <th class="text-left" style="border-right: 1px solid #ccc">Kierros</th>
+        <th class="text-left" style="border-right: 1px solid #ccc"></th>
         <th
           class="text-center"
           style="border-right: 1px solid #ccc"
