@@ -15,7 +15,7 @@
 .options {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: .8em;
 
   button {
     width: 30%;
