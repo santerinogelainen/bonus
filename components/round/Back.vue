@@ -2,7 +2,7 @@
   <v-btn
     variant="text"
     density="compact"
-    @click="() => emit('click')"
+    @click="previousState"
     prepend-icon="mdi-arrow-left"
     class="back-button"
     >Takaisin</v-btn
@@ -16,5 +16,5 @@
 </style>
 
 <script setup lang="ts">
-const emit = defineEmits(["click"]);
+import { previousState } from '~/logic/state';
 </script>

@@ -8,14 +8,13 @@
     :is-disabled="isDisabled"
     @click="onGuess"
   />
-  <round-back @click="onBack" />
 </template>
 
 <script setup lang="ts">
 import game from "~/logic/game";
 import { guesser, guessNumber } from "~/logic/guess";
 import round, { options } from "~/logic/round";
-import { nextState, previousState } from "~/logic/state";
+import { nextState } from "~/logic/state";
 import { getSum } from "~/logic/utils";
 
 const isDisabled = (option: number) => {
@@ -31,10 +30,6 @@ const isDisabled = (option: number) => {
   }
   return false;
 };
-
-const onBack = () => {
-  previousState();
-}
 
 const onGuess = (n: number) => {
   guessNumber(n);

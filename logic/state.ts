@@ -1,6 +1,6 @@
 import type { GameState } from "~/types";
 import game, { getGameRoute } from "./game";
-import round, { firstRound, nextRound } from "./round";
+import round, { firstRound, nextRound, previousRound } from "./round";
 import { setUnknownPlayers } from "./players";
 import { nextGuesser, unguessNumber } from "./guess";
 import { unanswerNumber } from "./answer";
@@ -45,7 +45,7 @@ export const nextState = () => {
 const previousStateHandlers: Record<GameState, NextGameStateHandler> = {
   initializing: () => "players",
   players: () => "players",
-  deal: () => "guess",
+  deal: () => previousRound() ? "answer" : "players",
   guess: () => unguessNumber() ? "guess" : "deal",
   play: () => {
     unguessNumber();

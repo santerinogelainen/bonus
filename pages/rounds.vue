@@ -15,6 +15,7 @@
         <round-guess v-if="state === 'guess'" />
         <round-play v-if="state === 'play'" />
         <round-answer v-if="state === 'answer'" />
+        <round-back />
       </v-container>
     </section>
   </div>

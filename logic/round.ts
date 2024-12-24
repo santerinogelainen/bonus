@@ -1,13 +1,15 @@
-import type { Player, PlayerId, Round } from "~/types";
+import type { Player, Round } from "~/types";
 import game from "./game";
 import { createPlayer, getCardCount, getNextPlayer } from "./players";
 import { getRandomItem } from "./utils";
 import { Suit } from "~/enums";
-import { nextGuesser } from "./guess";
+import { unanswerNumber } from "./answer";
+
+const firstRoundId = 1;
 
 const getFirstRound = () => {
   return {
-    id: 1,
+    id: firstRoundId,
     cards: 1,
     dealerId: getRandomItem(Object.values(game.value.players))?.id,
     guesses: []
@@ -72,6 +74,14 @@ export const nextRound = () => {
 
 export const firstRound = () => {
   game.value.rounds.push(getFirstRound());
+}
+
+export const previousRound = () => {
+  if (round.value.id === firstRoundId) {
+    return false;
+  }
+  game.value.rounds.pop();
+  return unanswerNumber();
 }
 
 export default round;

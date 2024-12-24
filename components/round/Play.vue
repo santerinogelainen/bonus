@@ -11,11 +11,8 @@
       >Tulokset</v-btn
     >
   </div>
-  <round-back @click="onBack" />
 </template>
 
 <script setup lang="ts">
-import { nextState, previousState } from "~/logic/state";
-
-const onBack = () => previousState();
+import { nextState } from "~/logic/state";
 </script>

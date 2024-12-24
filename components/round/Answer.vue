@@ -4,18 +4,13 @@
     sai:
   </h1>
   <round-keyboard :options="possibleOptions" @click="onAnswer" />
-  <round-back @click="onBack" />
 </template>
 
 <script setup lang="ts">
 import round, { options } from "~/logic/round";
 import { answerer, answerNumber } from "~/logic/answer";
 import { getSum } from "~/logic/utils";
-import { nextState, previousState } from "~/logic/state";
-
-const onBack = () => {
-  previousState();
-};
+import { nextState } from "~/logic/state";
 
 const onAnswer = (n: number) => {
   answerNumber(n);
