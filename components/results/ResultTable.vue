@@ -9,7 +9,8 @@
           v-for="player in Object.values(game.players)"
           colspan="2"
         >
-          <strong>{{ player.name }}</strong>
+          <trophy :placement="player.placement" />
+          <strong class="ms-2">{{ player.name }}</strong>
         </th>
       </tr>
     </thead>
@@ -26,6 +27,7 @@
 <script setup lang="ts">
 import game from "~/logic/game";
 import ResultTableRow from "./ResultTableRow.vue";
+import Trophy from "../Trophy.vue";
 import type { RoundResult } from "~/types";
 
 const props = defineProps<{
