@@ -22,6 +22,12 @@
   "nav": {
     "home": "Etusivu",
     "continueGame": "Jatka peliä",
-    "results": "Tulokset"
+    "continue": "Jatka",
+    "results": "Tulokset",
+    "players": "Pelaajat"
+  },
+  "players": {
+    "enterName": "Syötä nimi",
+    "addPlayer": "Lisää pelaaja"
   }
 }

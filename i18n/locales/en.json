@@ -22,6 +22,12 @@
   "nav": {
     "home": "Home",
     "continueGame": "Continue game",
-    "results": "Results"
+    "continue": "Continue",
+    "results": "Results",
+    "players": "Players"
+  },
+  "players": {
+    "enterName": "Enter name",
+    "addPlayer": "Add player"
   }
 }

@@ -22,6 +22,12 @@
   "nav": {
     "home": "Avaleht",
     "continueGame": "Jätka mängu",
-    "results": "Tulemused"
+    "continue": "Jätka",
+    "results": "Tulemused",
+    "players": "Mängijad"
+  },
+  "players": {
+    "enterName": "Sisesta nimi",
+    "addPlayer": "Lisa mängija"
   }
 }
