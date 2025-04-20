@@ -1,22 +1,27 @@
 <template>
-  <v-btn-group>
-    <v-btn
-      v-for="locale in availableLocales"
-      :key="locale"
-      :variant="currentLocale === locale ? 'elevated' : 'text'"
-      @click="switchLanguage(locale)"
-      size="small"
-    >
-      {{ locale.toUpperCase() }}
-    </v-btn>
-  </v-btn-group>
+  <v-select
+    v-model="currentLocale"
+    :items="locales"
+    item-title="name"
+    item-value="code"
+    variant="outlined"
+    density="compact"
+    hide-details
+    @update:model-value="switchLanguage"
+  />
 </template>
 
 <script setup lang="ts">
-const availableLocales = ['en', 'fi', 'et']
+type LocaleCode = 'en' | 'fi' | 'et'
+
+const locales = [
+  { code: 'en' as LocaleCode, name: 'English' },
+  { code: 'fi' as LocaleCode, name: 'Suomi' },
+  { code: 'et' as LocaleCode, name: 'Eesti' }
+]
 const { setLocale, locale: currentLocale } = useI18n()
 
-const switchLanguage = (code: any) => {
+const switchLanguage = (code: LocaleCode) => {
   setLocale(code)
   navigateTo(useRoute().path, { replace: true })
 }
