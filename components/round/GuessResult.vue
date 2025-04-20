@@ -11,6 +11,12 @@
 import type { RoundGuess } from "~/types";
 import { VChip } from "vuetify/components";
 
+const props = defineProps<{
+  guess?: RoundGuess;
+}>();
+
+const { t } = useI18n()
+
 const color = computed(() => {
   if (props.guess?.answer === undefined) {
     return undefined;
@@ -27,7 +33,12 @@ const icon = computed(() => {
   return props.guess?.answer === props.guess.guess ? "mdi-check" : "mdi-close";
 });
 
-const props = defineProps<{
-  guess?: RoundGuess;
-}>();
+const resultText = computed(() => {
+  if (props.guess?.answer === undefined) {
+    return '';
+  }
+  return props.guess?.answer === props.guess.guess ? 
+    t('game.correct') : 
+    t('game.wrong');
+});
 </script>

@@ -1,0 +1,27 @@
+{
+  "game": {
+    "back": "Takaisin",
+    "newGame": "Uusi peli",
+    "highScore": "Ennätys",
+    "trumpCard": "Valttikortit",
+    "yourGuess": "Arvauksesi",
+    "results": "Tulokset",
+    "startsRound": "aloittaa kierroksen",
+    "playRound": "Pelatkaa kierros läpi",
+    "guessesNow": "arvaa:",
+    "deals": "jakaa",
+    "cards": "korttia",
+    "cardsDealt": "Kortit on jaettu",
+    "got": "sai:",
+    "randomlySelectedTrump": "Satunnaisesti valittu valtti",
+    "roundNumber": "Kierros {number}",
+    "pointsCount": "{count} pistettä",
+    "showRounds": "Näytä kierrokset",
+    "finalResults": "Lopputulokset"
+  },
+  "nav": {
+    "home": "Etusivu",
+    "continueGame": "Jatka peliä",
+    "results": "Tulokset"
+  }
+} 

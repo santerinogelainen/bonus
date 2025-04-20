@@ -4,7 +4,7 @@
       <v-list-item
         v-for="player, i in results"
         :title="player.name"
-        :subtitle="`${player.points} pistettä`"
+        :subtitle="$t('game.pointsCount', { count: player.points })"
       >
         <template #prepend>
           <trophy :placement="i" large />
@@ -18,16 +18,18 @@
         color="secondary"
         block
         to="/results"
-        >Näytä kierrokset</v-btn
       >
+        {{ $t('game.showRounds') }}
+      </v-btn>
       <v-btn
         size="x-large"
         block
         to="/"
         class="mt-3"
         rounded="lg"
-        >Takaisin etusivulle</v-btn
       >
+        {{ $t('nav.backToHome') }}
+      </v-btn>
     </div>
   </v-container>
 </template>
@@ -37,9 +39,13 @@ import game from "~/logic/game";
 import Trophy from "~/components/Trophy.vue";
 import { sortBy } from "~/logic/utils";
 
+const { t } = useI18n()
+
 const results = computed(() =>
   sortBy(Object.values(game.value.players), "points").reverse()
 );
 
-definePageMeta({ title: `Tulokset` });
+useHead({
+  title: computed(() => t('game.finalResults'))
+});
 </script>

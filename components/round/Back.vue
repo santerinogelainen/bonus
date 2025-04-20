@@ -5,8 +5,9 @@
     @click="previousState"
     prepend-icon="mdi-arrow-left"
     class="back-button"
-    >Takaisin</v-btn
   >
+    {{ $t('game.back') }}
+  </v-btn>
 </template>
 
 <style lang="scss" scoped>

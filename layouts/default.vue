@@ -1,5 +1,4 @@
 <template>
-  <Title>{{ title }}</Title>
   <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -12,25 +11,26 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-app-bar-title>
-        {{ title }}
+        TODO
       </v-app-bar-title>
+      <template v-slot:append>
+        <language-switcher />
+      </template>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" temporary>
       <v-list nav>
-        <v-list-item prepend-icon="mdi-home" to="/">Etusivu</v-list-item>
+        <v-list-item prepend-icon="mdi-home" to="/">{{ $t('nav.home') }}</v-list-item>
         <v-list-item
           v-if="game.state !== 'initializing'"
           prepend-icon="mdi-play"
           :to="gameRoute"
-          >Jatka peliä</v-list-item
-        >
+        >{{ $t('nav.continueGame') }}</v-list-item>
         <v-list-item
           v-if="game.state !== 'initializing'"
           prepend-icon="mdi-chart-bar"
           to="/results"
-          >Tulokset</v-list-item
-        >
+        >{{ $t('nav.results') }}</v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -47,21 +47,8 @@
 
 <script setup lang="ts">
 import game, { useGameSaver, useGameLoader, gameRoute } from "~/logic/game";
+import LanguageSwitcher from "~/components/LanguageSwitcher.vue";
 
-const route = useRoute();
-const title = computed(() => {
-  const value = route.meta.title as string | (() => string) | undefined;
-
-  if (value === undefined) {
-    return undefined;
-  }
-
-  if (typeof value === "function") {
-    return value();
-  }
-
-  return value;
-});
 const drawer = ref(false);
 
 // Automatically load and save game to/from local storage

@@ -7,6 +7,8 @@ import game from "~/logic/game";
 import type { PlayerId, RoundGuess, RoundResult } from "~/types";
 import ResultTable from "~/components/results/ResultTable.vue";
 
+const { t } = useI18n()
+
 const data = computed(() => {
   const result = new Array<RoundResult>();
 
@@ -34,5 +36,7 @@ const data = computed(() => {
   return result;
 });
 
-definePageMeta({ title: `Tulokset` });
+useHead({
+  title: computed(() => t('nav.results'))
+});
 </script>

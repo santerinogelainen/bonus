@@ -1,7 +1,7 @@
 <template>
   <h1>
     <strong>{{ answerer?.name }}</strong>
-    sai:
+    {{ $t('game.got') }}
   </h1>
   <round-keyboard :options="possibleOptions" @click="onAnswer" />
 </template>

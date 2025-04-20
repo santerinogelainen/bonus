@@ -1,0 +1,27 @@
+{
+  "game": {
+    "back": "Tagasi",
+    "newGame": "Uus mäng",
+    "highScore": "Rekord",
+    "trumpCard": "Trumpkaart",
+    "yourGuess": "Sinu arvamus",
+    "results": "Tulemused",
+    "startsRound": "alustab ringi",
+    "playRound": "Mängige ring läbi",
+    "guessesNow": "arvab:",
+    "deals": "jagab",
+    "cards": "kaarti",
+    "cardsDealt": "Kaardid on jagatud",
+    "got": "sai:",
+    "randomlySelectedTrump": "Juhuslikult valitud trump",
+    "roundNumber": "Ring {number}",
+    "pointsCount": "{count} punkti",
+    "showRounds": "Näita ringe",
+    "finalResults": "Lõpptulemused"
+  },
+  "nav": {
+    "home": "Avaleht",
+    "continueGame": "Jätka mängu",
+    "results": "Tulemused"
+  }
+} 

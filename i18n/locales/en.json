@@ -1,0 +1,27 @@
+{
+  "game": {
+    "back": "Back",
+    "newGame": "New Game",
+    "highScore": "High Score",
+    "trumpCard": "Trump Card",
+    "yourGuess": "Your Guess",
+    "results": "Results",
+    "startsRound": "starts the round",
+    "playRound": "Play the round",
+    "guessesNow": "guesses:",
+    "deals": "deals",
+    "cards": "cards",
+    "cardsDealt": "Cards have been dealt",
+    "got": "got:",
+    "randomlySelectedTrump": "Randomly selected trump suit",
+    "roundNumber": "Round {number}",
+    "pointsCount": "{count} points",
+    "showRounds": "Show rounds",
+    "finalResults": "Final Results"
+  },
+  "nav": {
+    "home": "Home",
+    "continueGame": "Continue game",
+    "results": "Results"
+  }
+} 

@@ -1,6 +1,6 @@
 <template>
-  <h1 v-if="starterPlayer?.name">{{ `${starterPlayer?.name} aloitaa.` }} Pelatkaa kierros läpi.</h1>
-  <h1 v-else>Pelatkaa kierros läpi.</h1>
+  <h1 v-if="starterPlayer?.name">{{ starterPlayer?.name }} {{ $t('game.startsRound') }}</h1>
+  <h1 v-else>{{ $t('game.playRound') }}</h1>
   
   <div class="mt-3">
     <v-btn
@@ -9,8 +9,9 @@
       color="secondary"
       block
       @click="nextState"
-      >Tulokset</v-btn
     >
+      {{ $t('game.results') }}
+    </v-btn>
   </div>
 </template>
 

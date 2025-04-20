@@ -8,16 +8,18 @@
       class="mt-3"
       rounded="lg"
       color="secondary"
-      >Jatka peliä</v-btn
     >
+      {{ $t('nav.continueGame') }}
+    </v-btn>
     <v-btn
       size="x-large"
       block
       @click="createNewGame"
       class="mt-3"
       rounded="lg"
-      >Uusi peli</v-btn
     >
+      {{ $t('game.newGame') }}
+    </v-btn>
   </v-container>
 </template>
 
@@ -25,6 +27,9 @@
 import game, { newGame, gameRoute } from "~/logic/game";
 import { addPlayer } from "~/logic/players";
 import { nextState } from "~/logic/state";
+import { computed } from "vue";
+
+const { t } = useI18n()
 
 const createNewGame = () => {
   game.value = newGame();
@@ -38,5 +43,7 @@ const createNewGame = () => {
   nextState();
 };
 
-definePageMeta({title: `Etusivu`});
+useHead({
+  title: computed(() => t('nav.home'))
+});
 </script>

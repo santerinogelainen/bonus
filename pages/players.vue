@@ -3,7 +3,7 @@
     <v-list-item v-for="player in Object.values(game.players)" :key="player.id">
       <v-text-field
         v-model="player.name"
-        label="Anna pelaajan nimi"
+        :label="$t('players.enterName')"
         append-icon="mdi-window-close"
         @click:append="() => removePlayer(player.id)"
         :hide-details="true"
@@ -18,8 +18,9 @@
         block
         rounded="lg"
         prepend-icon="mdi-plus"
-        >Lisää pelaaja</v-btn
       >
+        {{ $t('players.addPlayer') }}
+      </v-btn>
     </div>
     <v-btn
       size="x-large"
@@ -28,7 +29,7 @@
       color="secondary"
       @click="nextState"
     >
-      Jatka
+      {{ $t('nav.continue') }}
     </v-btn>
   </v-container>
 </template>
@@ -38,6 +39,9 @@ import game from "~/logic/game";
 import { addPlayer, removePlayer, maxPlayers } from "~/logic/players";
 import { nextState } from "~/logic/state";
 
+const { t } = useI18n();
 
-definePageMeta({ title: `Pelaajat` });
+useHead({
+  title: computed(() => t('nav.players'))
+});
 </script>

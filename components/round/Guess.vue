@@ -1,7 +1,7 @@
 <template>
   <h1>
     <strong>{{ guesser?.name }}</strong>
-    arvaa:
+    {{ $t('game.guessesNow') }}
   </h1>
   <round-keyboard
     :options="options"

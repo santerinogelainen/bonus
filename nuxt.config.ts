@@ -1,4 +1,5 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
@@ -21,8 +22,40 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    //...
+    '@nuxtjs/i18n'
   ],
+
+  i18n: {
+    defaultLocale: 'fi',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+    bundle: {
+      optimizeTranslationDirective: false
+    },
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json'
+      },
+      {
+        code: 'fi',
+        name: 'Suomi',
+        file: 'fi.json'
+      },
+      {
+        code: 'et',
+        name: 'Eesti',
+        file: 'et.json'
+      }
+    ],
+    lazy: true,
+    langDir: 'locales/',
+    strategy: 'no_prefix'
+  },
 
   vite: {
     vue: {

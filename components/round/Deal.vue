@@ -1,9 +1,9 @@
 <template>
   <h1>
     <strong>{{ dealer.name }}</strong>
-    jakaa
+    {{ $t('game.deals') }}
     <strong>{{ round.cards }}</strong>
-    korttia.
+    {{ $t('game.cards') }}
   </h1>
   <div class="mt-3">
     <v-btn
@@ -12,8 +12,9 @@
       color="secondary"
       block
       @click="nextState"
-      >Kortit on jaettu</v-btn
     >
+      {{ $t('game.cardsDealt') }}
+    </v-btn>
   </div>
 </template>
 

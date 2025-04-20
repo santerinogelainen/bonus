@@ -3,7 +3,7 @@
     <template #prepend>
       <v-icon :color="color"> mdi-cards-{{ round.suit }} </v-icon>
     </template>
-    <v-banner-text> Satunnaisesti valittu valtti </v-banner-text>
+    <v-banner-text>{{ $t('game.randomlySelectedTrump') }}</v-banner-text>
   </v-banner>
 </template>
 

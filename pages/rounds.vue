@@ -28,11 +28,15 @@ import game from "~/logic/game";
 import round from "~/logic/round";
 import state from "~/logic/state";
 
+const { t } = useI18n()
+
 const listRound = computed(() =>
   state.value === "deal" ? game.value.rounds.at(-2) || round.value : round.value
 );
 
-definePageMeta({ title: () => `Kierros ${round.value.id}` });
+useHead({
+  title: computed(() => t('game.roundNumber', { number: round.value.id }))
+});
 </script>
 
 <style lang="scss" scoped>
