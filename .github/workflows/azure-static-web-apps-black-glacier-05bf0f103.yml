@@ -11,13 +11,26 @@ jobs:
         with:
           submodules: true
           lfs: false
+
+      - name: Setup Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          cache: 'yarn'
+          
+      - name: Install dependencies
+        run: yarn install
+        
+      - name: Generate static files
+        run: yarn generate
+        
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_GLACIER_05BF0F103 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_build_command: "yarn generate"
           app_location: "/" # App source code path
-          output_location: ".output/public" # Built app content directory - optional
+          output_location: ".output/public" # Built app content directory
+          skip_app_build: true # Skip the build since we already built it
