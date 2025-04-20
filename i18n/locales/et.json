@@ -24,7 +24,8 @@
     "continueGame": "Jätka mängu",
     "continue": "Jätka",
     "results": "Tulemused",
-    "players": "Mängijad"
+    "players": "Mängijad",
+    "backToHome": "Tagasi etusivule"
   },
   "players": {
     "enterName": "Sisesta nimi",

@@ -24,7 +24,8 @@
     "continueGame": "Continue game",
     "continue": "Continue",
     "results": "Results",
-    "players": "Players"
+    "players": "Players",
+    "backToHome": "Back to home"
   },
   "players": {
     "enterName": "Enter name",

@@ -24,7 +24,8 @@
     "continueGame": "Jatka peliä",
     "continue": "Jatka",
     "results": "Tulokset",
-    "players": "Pelaajat"
+    "players": "Pelaajat",
+    "backToHome": "Takaisin etusivulle"
   },
   "players": {
     "enterName": "Syötä nimi",
