@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import { useAppTitle } from "~/composition/useAppTitle";
 import { answerer } from "~/logic/answer";
 import game from "~/logic/game";
 import round from "~/logic/round";
@@ -34,9 +35,7 @@ const listRound = computed(() =>
   state.value === "deal" ? game.value.rounds.at(-2) || round.value : round.value
 );
 
-useHead({
-  title: computed(() => t('game.roundNumber', { number: round.value.id }))
-});
+useAppTitle(() => t('game.roundNumber', { number: round.value.id }));
 </script>
 
 <style lang="scss" scoped>

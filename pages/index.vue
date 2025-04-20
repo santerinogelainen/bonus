@@ -24,10 +24,10 @@
 </template>
 
 <script setup lang="ts">
+import { useAppTitle } from "~/composition/useAppTitle";
 import game, { newGame, gameRoute } from "~/logic/game";
 import { addPlayer } from "~/logic/players";
 import { nextState } from "~/logic/state";
-import { computed } from "vue";
 
 const { t } = useI18n()
 
@@ -43,7 +43,5 @@ const createNewGame = () => {
   nextState();
 };
 
-useHead({
-  title: computed(() => t('nav.home'))
-});
+useAppTitle(() => t('nav.home'))
 </script>

@@ -35,13 +35,12 @@
 </template>
 
 <script setup lang="ts">
+import { useAppTitle } from "~/composition/useAppTitle";
 import game from "~/logic/game";
 import { addPlayer, removePlayer, maxPlayers } from "~/logic/players";
 import { nextState } from "~/logic/state";
 
 const { t } = useI18n();
 
-useHead({
-  title: computed(() => t('nav.players'))
-});
+useAppTitle(() => t('nav.players'));
 </script>

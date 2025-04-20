@@ -6,6 +6,7 @@
 import game from "~/logic/game";
 import type { PlayerId, RoundGuess, RoundResult } from "~/types";
 import ResultTable from "~/components/results/ResultTable.vue";
+import { useAppTitle } from "~/composition/useAppTitle";
 
 const { t } = useI18n()
 
@@ -36,7 +37,5 @@ const data = computed(() => {
   return result;
 });
 
-useHead({
-  title: computed(() => t('nav.results'))
-});
+useAppTitle(() => t('nav.results'));
 </script>

@@ -38,6 +38,7 @@
 import game from "~/logic/game";
 import Trophy from "~/components/Trophy.vue";
 import { sortBy } from "~/logic/utils";
+import { useAppTitle } from "~/composition/useAppTitle";
 
 const { t } = useI18n()
 
@@ -45,7 +46,5 @@ const results = computed(() =>
   sortBy(Object.values(game.value.players), "points").reverse()
 );
 
-useHead({
-  title: computed(() => t('game.finalResults'))
-});
+useAppTitle(() => t('game.finalResults'));
 </script>

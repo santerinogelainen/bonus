@@ -11,7 +11,7 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-app-bar-title>
-        TODO
+        {{ title }}
       </v-app-bar-title>
       <template v-slot:append>
         <language-switcher />
@@ -49,6 +49,7 @@
 import game, { useGameSaver, useGameLoader, gameRoute } from "~/logic/game";
 import LanguageSwitcher from "~/components/LanguageSwitcher.vue";
 
+const title = ref('');
 const drawer = ref(false);
 
 // Automatically load and save game to/from local storage
@@ -56,8 +57,11 @@ const loaded = useGameLoader();
 useGameSaver();
 
 useHead({
+  title: title,
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Bonus` : "Bonus";
   },
 });
+
+provide('app-title', title);
 </script>
