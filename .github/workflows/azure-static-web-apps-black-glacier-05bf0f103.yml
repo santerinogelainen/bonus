@@ -18,6 +18,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_GLACIER_05BF0F103 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          app_build_command: "yarn run generate"
+          app_build_command: "yarn generate"
           app_location: "/" # App source code path
           output_location: ".output/public" # Built app content directory - optional
