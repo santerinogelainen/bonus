@@ -4,11 +4,14 @@
     :items="locales"
     item-title="name"
     item-value="code"
-    variant="outlined"
-    density="compact"
-    hide-details
+    variant="plain"
+    class="pe-2 mt-1"
     @update:model-value="switchLanguage"
-  />
+  >
+    <template #selection="{ item }">
+      {{ item?.raw?.name }}
+    </template>
+  </v-select>
 </template>
 
 <script setup lang="ts">
@@ -25,4 +28,4 @@ const switchLanguage = (code: LocaleCode) => {
   setLocale(code)
   navigateTo(useRoute().path, { replace: true })
 }
-</script> 
+</script>
