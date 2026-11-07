@@ -42,7 +42,7 @@
     "setupList": [
       "In games with 2, 3, 4, or 6 players, cards 5 and below are removed, so cards 6–14 are used.",
       "In games with 5 players, cards 4 and below are removed, so cards 5–14 are used.",
-      "NOTE: Jack = 11, Queen = 12, King = 13, Ace = 14."
+      "NOTE: Jack = 11, Queen = 12, King = 13, Ace = 14. Jokers are not used in the game."
     ],
     "roundFlowTitle": "How a round works",
     "roundFlowList": [
@@ -66,10 +66,10 @@
       "Once everyone has played one card, the player who played the highest card wins the hand. If any trump cards are on the table, the highest trump card wins.",
       "The winner collects the cards played on the table and places them in front of themselves. They then play one card from their hand, and this cycle continues until all cards have been played.",
       "Once all cards have been played, the round ends and each player's score is calculated (cards won compared with their guess).",
-      "The dealer then passes to the next player and a new round begins."
+      "After that, the dealer role passes to the next player and a new round begins."
     ],
     "scoringTitle": "Scoring",
-    "scoringText": "You score points for the number of cards you win in the round, plus 5 bonus points if your guess was exactly right. For example:",
+    "scoringText": "You score points for the number of cards you win in the round, plus 5 bonus points if your guess was exactly right. The game calculates the points automatically. For example:",
     "scoringList": [
       "If a player wins 3 cards and guessed 3, they score 8 points.",
       "If a player wins 3 cards and guessed 2, they score 3 points.",

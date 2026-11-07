@@ -42,7 +42,7 @@
     "setupList": [
       "2, 3, 4 või 6 mängijaga mängus eemaldatakse kaardid 5 ja alla selle, seega kasutatakse kaarte 6–14.",
       "5 mängijaga mängus eemaldatakse kaardid 4 ja alla selle, seega kasutatakse kaarte 5–14.",
-      "MÄRKUS: soldat = 11, emand = 12, kuningas = 13, äss = 14."
+      "MÄRKUS! Soldat = 11, emand = 12, kuningas = 13, äss = 14. Jokereid mängus ei kasutata."
     ],
     "roundFlowTitle": "Kuidas ring toimib",
     "roundFlowList": [
@@ -66,10 +66,10 @@
       "Kui kõik mängijad on ühe kaardi lauale pannud, võidab käe mängija, kes pani lauale kõrgeima kaardi. Kui laual on trumpmasti kaarte, võidab kõrgeim trumpkaart.",
       "Võitja korjab laual mängitud kaardid ja asetab need enda ette. Seejärel paneb ta käest lauale ühe kaardi ning tsükkel jätkub, kuni kõik kaardid on mängitud.",
       "Kui kõik kaardid on mängitud, lõpeb ring ning iga mängija punktid arvutatakse tema arvamuse ja tulemuse põhjal (võidetud kaartide arv võrreldes arvamusega).",
-      "Seejärel läheb jagamisjärg üle järgmisele mängijale ja algab uus ring."
+      "Seejärel liigub jagaja roll järgmisele mängijale ja algab uus ring."
     ],
     "scoringTitle": "Punktisüsteem",
-    "scoringText": "Ringis saad punkte võidetud kaartide arvu eest ning täpse arvamuse korral lisaks 5 boonuspunkti. Näiteks:",
+    "scoringText": "Ringis saad punkte võidetud kaartide arvu eest ning täpse arvamuse korral lisaks 5 boonuspunkti. Mäng arvutab punktid automaatselt. Näiteks:",
     "scoringList": [
       "Kui mängija võidab 3 kaarti ja arvas 3, saab ta 8 punkti.",
       "Kui mängija võidab 3 kaarti ja arvas 2, saab ta 3 punkti.",
