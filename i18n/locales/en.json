@@ -21,6 +21,7 @@
   },
   "nav": {
     "home": "Home",
+    "rules": "Rules",
     "continueGame": "Continue game",
     "continue": "Continue",
     "results": "Results",
@@ -30,5 +31,22 @@
   "players": {
     "enterName": "Enter name",
     "addPlayer": "Add player"
+  },
+  "rules": {
+    "title": "Rules",
+    "intro": "Bonus is a card game for 2-6 players.",
+    "goalTitle": "Goal",
+    "goalText": "Collect as many points as possible across the whole game. In each round, your score is based on your guess/estimate, and an exact guess gives you a 5-point bonus.",
+    "setupTitle": "Setup",
+    "setupText": "The game starts by naming the players. Each round has a dealer who rotates after every round. The number of cards in play starts at 1 and rises to the maximum for the current player count before falling again.",
+    "roundFlowTitle": "How a round works",
+    "roundFlowText1": "The dealer deals the round's card count. Then players take turns guessing how many cards they think they received. The available guess range is from 0 up to the number of cards in play.",
+    "roundFlowText2": "After everyone has guessed, the active player reveals the actual number. That number becomes their answer and is scored immediately. The round ends once all answers are recorded.",
+    "scoringTitle": "Scoring",
+    "scoringText": "You score points equal to your answer. If your guess matches the actual answer exactly, you receive an additional 5 points. Example: answer 3 and guess 3 gives 8 points in total.",
+    "trumpTitle": "Trump suit",
+    "trumpText": "When the round reaches the maximum number of cards for the current player count, one suit is chosen at random as the trump suit. It is shown during play, but it does not change the basic scoring formula.",
+    "winnerTitle": "Winner",
+    "winnerText": "After the final round, the player with the highest total score wins the game."
   }
 }

@@ -21,6 +21,7 @@
     <v-navigation-drawer v-model="drawer" temporary>
       <v-list nav>
         <v-list-item prepend-icon="mdi-home" to="/">{{ $t('nav.home') }}</v-list-item>
+        <v-list-item prepend-icon="mdi-book-open-variant" to="/rules">{{ $t('nav.rules') }}</v-list-item>
         <v-list-item
           v-if="game.state !== 'initializing'"
           prepend-icon="mdi-play"

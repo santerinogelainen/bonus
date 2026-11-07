@@ -1,6 +1,17 @@
 <template>
   <v-container>
     <v-btn
+      size="x-large"
+      block
+      :to="'/rules'"
+      class="mt-3"
+      rounded="lg"
+      color="primary"
+      variant="outlined"
+    >
+      {{ $t('nav.rules') }}
+    </v-btn>
+    <v-btn
       v-if="game.state !== 'initializing'"
       size="x-large"
       block

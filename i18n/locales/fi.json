@@ -21,6 +21,7 @@
   },
   "nav": {
     "home": "Etusivu",
+    "rules": "Säännöt",
     "continueGame": "Jatka peliä",
     "continue": "Jatka",
     "results": "Tulokset",
@@ -30,5 +31,22 @@
   "players": {
     "enterName": "Syötä nimi",
     "addPlayer": "Lisää pelaaja"
+  },
+  "rules": {
+    "title": "Säännöt",
+    "intro": "Bonus on korttipeli 2-6 pelaajalle.",
+    "goalTitle": "Tavoite",
+    "goalText": "Yritä kerätä mahdollisimman monta pistettä koko pelin ajan. Jokaisella kierroksella pistesi perustuvat vastaukseesi, ja jos arvaus osuu täsmälleen, saat 5 pisteen bonuksen.",
+    "setupTitle": "Pelin aloitus",
+    "setupText": "Peli alkaa pelaajien nimillä. Jokaisella kierroksella on jakaja, joka vaihtuu joka kierroksen jälkeen. Korttien määrä alkaa yhdestä ja kasvaa nykyisen pelaajamäärän maksimiin, minkä jälkeen se pienenee uudelleen.",
+    "roundFlowTitle": "Kierroksen kulku",
+    "roundFlowText1": "Jakaja jakaa kyseisen kierroksen korttien määrän. Sen jälkeen pelaajat vuorollaan arvaavat, kuinka monta korttia he luulevat saaneensa. Arvauksien mahdollinen alue on 0–korttien lukumäärä.",
+    "roundFlowText2": "Kun kaikki ovat arvanneet, aktiivinen pelaaja paljastaa todellisen määrän. Tämä luku on hänen vastauksensa ja se pisteytetään heti. Kierros päättyy, kun kaikki vastaukset on kirjattu.",
+    "scoringTitle": "Pisteytys",
+    "scoringText": "Pisteet ovat yhtä suuret kuin vastauksesi. Jos arvauksesi vastaa todellista lukua täsmälleen, saat lisäksi 5 pistettä. Esimerkki: vastaus 3 ja arvaus 3 = yhteensä 8 pistettä.",
+    "trumpTitle": "Valtti",
+    "trumpText": "Kun kierros saavuttaa nykyiselle pelaajamäärälle sopivan maksimiarvon, yksi maa valitaan satunnaisesti valttimaksuksi. Se näytetään pöydällä, mutta se ei muuta perus pisteytyssääntöä.",
+    "winnerTitle": "Voittaja",
+    "winnerText": "Viimeisen kierroksen jälkeen eniten pisteitä kerännyt pelaaja voittaa pelin."
   }
 }

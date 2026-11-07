@@ -21,6 +21,7 @@
   },
   "nav": {
     "home": "Avaleht",
+    "rules": "Reeglid",
     "continueGame": "Jätka mängu",
     "continue": "Jätka",
     "results": "Tulemused",
@@ -30,5 +31,22 @@
   "players": {
     "enterName": "Sisesta nimi",
     "addPlayer": "Lisa mängija"
+  },
+  "rules": {
+    "title": "Reeglid",
+    "intro": "Bonus on kaartimäng 2-6 mängijale.",
+    "goalTitle": "Eesmärk",
+    "goalText": "Koguda kogu mängu jooksul võimalikult palju punkte. Igal ringil põhineb teie punktisumma teie vastusel ja täpne arvamine annab 5-punktilise boonuse.",
+    "setupTitle": "Seadistamine",
+    "setupText": "Mäng algab mängijate nimede valimisega. Igal ringil on jagaja, kes vahetub pärast iga ringi. Kaartide arv algab ühest ja kasvab kuni praeguse mängijate arvu maksimumini, seejärel väheneb uuesti.",
+    "roundFlowTitle": "Kuidas ring toimib",
+    "roundFlowText1": "Jagaja jagab selle ringi kaartide arvu. Seejärel mängivad mängijad kordamööda, arvates, kui palju kaarte nad arvavad saanud olevat. Arvatavate väärtuste vahemik on 0 kuni kaarte arvuni.",
+    "roundFlowText2": "Pärast kõigi arvutamist paljastab aktiivne mängija tegeliku arvu. See number muutub tema vastuseks ja see punkteeritakse kohe. Ring lõpeb siis, kui kõik vastused on salvestatud.",
+    "scoringTitle": "Punktisüsteem",
+    "scoringText": "Teie punktisumma on võrdne teie vastusega. Kui teie arvamine vastab tegelikule arvule täpselt, lisandub veel 5 punkti. Näide: vastus 3 ja arvamine 3 annab kokku 8 punkti.",
+    "trumpTitle": "Trump",
+    "trumpText": "Kui ring jõuab praeguse mängijate arvu maksimaalseni, valitakse juhuslikult üks masti trump. See näidatakse mängu ajal, kuid see ei muuda põhikriteeriume.",
+    "winnerTitle": "Võitja",
+    "winnerText": "Pärast viimast ringi on võitja mängija, kellel on kõige rohkem punkte."
   }
 }
