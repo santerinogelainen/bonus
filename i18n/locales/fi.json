@@ -36,16 +36,49 @@
     "title": "Säännöt",
     "intro": "Bonus on korttipeli 2-6 pelaajalle.",
     "goalTitle": "Tavoite",
-    "goalText": "Yritä kerätä mahdollisimman monta pistettä koko pelin ajan. Jokaisella kierroksella pistesi perustuvat vastaukseesi, ja jos arvaus osuu täsmälleen, saat 5 pisteen bonuksen.",
+    "goalText": "Kerää mahdollisimman paljon pisteitä koko pelin aikana. Jokaisella kierroksella pisteet perustuvat omaan arvaukseen ja lopputulokseen.",
     "setupTitle": "Pelin aloitus",
-    "setupText": "Peli alkaa pelaajien nimillä. Jokaisella kierroksella on jakaja, joka vaihtuu joka kierroksen jälkeen. Korttien määrä alkaa yhdestä ja kasvaa nykyisen pelaajamäärän maksimiin, minkä jälkeen se pienenee uudelleen.",
+    "setupText": "Pelin alussa jokaiselle pelaajalle annetaan nimi. Tämän jälkeen peli arpoo ensimmäisen jakajan, ja kierrokset alkavat. Jakaja vaihtuu jokaisen kierroksen jälkeen. Jakaminen alkaa yhdellä kortilla ja korttien määrä kasvaa jokaisella kierroksella, kunnes saavutetaan maksimi ja korttien määrä alkaa jälleen laskea. Pienet kortit tulee poistaa jaettavasta pakasta ennen peliä:",
+    "setupList": [
+      "2, 3, 4 tai 6 pelaajan pelissä kortit 5 ja alle ovat poissa. Käytössä ovat kortit 6-14.",
+      "5 pelaajan pelissä kortit 4 ja alle ovat poissa. Käytössä ovat kortit 5-14.",
+      "HUOM! Jätkä = 11, Kuningatar = 12, Kuningas = 13, Ässä = 14. Jokerit eivät ole mukana pelissä."
+    ],
     "roundFlowTitle": "Kierroksen kulku",
-    "roundFlowText1": "Jakaja jakaa kyseisen kierroksen korttien määrän. Sen jälkeen pelaajat vuorollaan arvaavat, kuinka monta korttia he luulevat saaneensa. Arvauksien mahdollinen alue on 0–korttien lukumäärä.",
-    "roundFlowText2": "Kun kaikki ovat arvanneet, aktiivinen pelaaja paljastaa todellisen määrän. Tämä luku on hänen vastauksensa ja se pisteytetään heti. Kierros päättyy, kun kaikki vastaukset on kirjattu.",
+    "roundFlowList": [
+      "Jakaja sekoittaa korttipakan, ja jakaa kierroksen kortit jokaiselle, siten että kukaan ei näe muiden kortteja. Jakaja nostaa myös pakasta valttikortin (valttimaan) esille kaikille nähtäväksi.",
+      "Pelaajat arvaavat vuorotellen, kuinka monta korttia he luulevat saavansa haltuunsa kierroksen aikana. Ensimmäisen arvauksen antaa jakajan jälkeinen pelaaja ja arvaukset annetaan pelaajajärjestyksessä. Viimeisenä arvaa jakaja itse."
+    ],
+    "roundFlowGuesses": [
+      "Sallitut arvaukset ovat välillä 0 - kierroksen korttien lukumäärä.",
+      "Kun kierroksessa on 4 tai enemmän korttia, viimeisenä arvaava pelaaja (jakaja) ei saa valita lukua, joka tekee kaikkien arvausten summasta kierroksen korttien määrän, jotta arvaus menee väärin vähintään yhdellä pelaajalla.",
+      "Jos viimeistä pelaajaa ennen on jo arvattu yli korttien määrän, viimeinen pelaaja voi valita minkä tahansa arvauksen."
+    ],
+    "roundFlowList2": [
+      "Kun arvaukset on annettu, ensimmäisenä arvannut pelaaja aloittaa kierroksen asettamalla yhden korteistaan pöytään. Tämän jälkeen seuraava pelaaja järjestyksessä asettaa yhden kortin pöytään, ja näin jatketaan, kunnes kaikki pelaajat ovat asettaneet yhden korteistaan pöytään."
+    ],
+    "roundFlowHierarchy": [
+      "Ensimmäisen kortin päälle tulee laittaa ensisijaisesti saman maan kortti, jos hänellä sellainen on.",
+      "Jos pelaajalla ei ole kyseisen maan korttia, hänen tulee laittaa valttimaan kortti, jos hänellä sellainen on.",
+      "Jos pelaajalla ei ole kyseisen maan korttia eikä valttimaan korttia, hän voi laittaa pöytään minkä tahansa kortin."
+    ],
+    "roundFlowList3": [
+      "Kun kaikki pelaajat ovat asettaneet yhden korteistaan pöytään, kortin voittaa se pelaaja, joka on asettanut pöytään korkeimman kortin. Jos pöydässä on valttimaan kortteja, korkein valttimaan kortti voittaa.",
+      "Kortin voittanut pelaaja kerää pöydällä olevat pelatut kortit itsensä eteen. Hän myös asettaa yhden kädessä olevista korteistaan pöytään, ja tätä sykliä jatketaan, kunnes kaikki kortit on pelattu.",
+      "Kun kortit on pelattu, kierros päättyy ja lasketaan montako pistettä kukin pelaaja on ansainnut (montako korttia voitti vs montako arvasi).",
+      "Tämän jälkeen jakajan rooli siirtyy seuraavalle pelaajalle ja aloitetaan uusi kierros."
+    ],
     "scoringTitle": "Pisteytys",
-    "scoringText": "Pisteet ovat yhtä suuret kuin vastauksesi. Jos arvauksesi vastaa todellista lukua täsmälleen, saat lisäksi 5 pistettä. Esimerkki: vastaus 3 ja arvaus 3 = yhteensä 8 pistettä.",
+    "scoringText": "Kierroksesta saa pisteitä voitettujen korttien verran ja 5 lisäpistettä jos arvaus meni oikein. Peli laskee pisteet automaattisesti. Esimerkki:",
+    "scoringList": [
+      "Jos pelaaja voittaa 3 korttia ja hänen arvauksensa oli 3, hän saa 8 pistettä.",
+      "Jos pelaaja voittaa 3 korttia ja hänen arvauksensa oli 2, hän saa 3 pistettä.",
+      "Jos pelaaja voittaa 3 korttia ja hänen arvauksensa oli 4, hän saa 3 pistettä.",
+      "Jos pelaaja voittaa 0 korttia ja hänen arvauksensa oli 0, hän saa 5 pistettä.",
+      "Jos pelaaja voittaa 0 korttia ja hänen arvauksensa oli 1, hän saa 0 pistettä."
+    ],
     "trumpTitle": "Valtti",
-    "trumpText": "Kun kierros saavuttaa nykyiselle pelaajamäärälle sopivan maksimiarvon, yksi maa valitaan satunnaisesti valttimaksuksi. Se näytetään pöydällä, mutta se ei muuta perus pisteytyssääntöä.",
+    "trumpText": "Valtti valitaan satunnaisesti jokaisella kierroksella. Viimeisillä kierroksilla sovellus generoi valtin automaattisesti, koska pöydällä ei ole enää ylimääräisiä kortteja näytettäväksi.",
     "winnerTitle": "Voittaja",
     "winnerText": "Viimeisen kierroksen jälkeen eniten pisteitä kerännyt pelaaja voittaa pelin."
   }

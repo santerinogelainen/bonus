@@ -36,16 +36,49 @@
     "title": "Reeglid",
     "intro": "Bonus on kaartimäng 2-6 mängijale.",
     "goalTitle": "Eesmärk",
-    "goalText": "Koguda kogu mängu jooksul võimalikult palju punkte. Igal ringil põhineb teie punktisumma teie vastusel ja täpne arvamine annab 5-punktilise boonuse.",
+    "goalText": "Koguda kogu mängu jooksul võimalikult palju punkte. Iga ringi punktisumma põhineb arvamisel ja vastusel.",
     "setupTitle": "Seadistamine",
-    "setupText": "Mäng algab mängijate nimede valimisega. Igal ringil on jagaja, kes vahetub pärast iga ringi. Kaartide arv algab ühest ja kasvab kuni praeguse mängijate arvu maksimumini, seejärel väheneb uuesti.",
+    "setupText": "Mängu alguses antakse igale mängijale nimi. Seejärel valib mäng juhuslikult esimese jagaja ja ringid algavad. Jagaja vahetub pärast iga ringi. Jagamine algab ühe kaardiga ning kaartide arv suureneb igas ringis maksimumini jõudmiseni, seejärel hakkab taas vähenema. Enne mängu eemaldatakse pakist väikese väärtusega kaardid:",
+    "setupList": [
+      "2, 3, 4 või 6 mängijaga mängus eemaldatakse kaardid 5 ja alla selle, seega kasutatakse kaarte 6–14.",
+      "5 mängijaga mängus eemaldatakse kaardid 4 ja alla selle, seega kasutatakse kaarte 5–14.",
+      "MÄRKUS: soldat = 11, emand = 12, kuningas = 13, äss = 14."
+    ],
     "roundFlowTitle": "Kuidas ring toimib",
-    "roundFlowText1": "Jagaja jagab selle ringi kaartide arvu. Seejärel mängivad mängijad kordamööda, arvates, kui palju kaarte nad arvavad saanud olevat. Arvatavate väärtuste vahemik on 0 kuni kaarte arvuni.",
-    "roundFlowText2": "Pärast kõigi arvutamist paljastab aktiivne mängija tegeliku arvu. See number muutub tema vastuseks ja see punkteeritakse kohe. Ring lõpeb siis, kui kõik vastused on salvestatud.",
+    "roundFlowList": [
+      "Jagaja segab kaardipaki ja jagab ringi kaardid igale mängijale nii, et keegi ei näe teiste mängijate kaarte. Jagaja avab kõigile vaatamiseks ka trumpkaardi (trumbimasti).",
+      "Mängijad arvavad kordamööda, mitu kaarti nad arvavad ringi jooksul võitvat. Esimesena arvab jagajast järgmine mängija, seejärel arvatakse mängijate järjekorras ja viimasena arvab jagaja ise."
+    ],
+    "roundFlowGuesses": [
+      "Lubatud arvamused jäävad vahemikku 0 kuni ringi kaartide arv.",
+      "Kui ringis on 4 või rohkem kaarti, ei tohi viimasena arvav mängija (jagaja) valida arvu, mis muudaks kõigi arvamuste summa võrdseks ringi kaartide arvuga, et vähemalt ühe mängija arvamus läheks valesti.",
+      "Kui enne viimase mängija arvamust on juba pakutud kaartide arvust suurem summa, võib viimane mängija valida ükskõik millise arvu."
+    ],
+    "roundFlowList2": [
+      "Kui kõik on arvanud, alustab esimesena arvanud mängija ringi, pannes lauale ühe kaardi. Järgmine mängija paneb samuti ühe kaardi lauale ning nii jätkatakse, kuni kõik mängijad on ühe kaardi lauale pannud."
+    ],
+    "roundFlowHierarchy": [
+      "Esimese kaardiga tuleb eelistatult mängida sama masti kaart, kui mängijal see on.",
+      "Kui mängijal selle masti kaarti ei ole, peab ta mängima trumpmasti kaardi, kui tal see on.",
+      "Kui mängijal ei ole esimese kaardi masti ega trumpmasti kaarti, võib ta mängida ükskõik millise kaardi."
+    ],
+    "roundFlowList3": [
+      "Kui kõik mängijad on ühe kaardi lauale pannud, võidab käe mängija, kes pani lauale kõrgeima kaardi. Kui laual on trumpmasti kaarte, võidab kõrgeim trumpkaart.",
+      "Võitja korjab laual mängitud kaardid ja asetab need enda ette. Seejärel paneb ta käest lauale ühe kaardi ning tsükkel jätkub, kuni kõik kaardid on mängitud.",
+      "Kui kõik kaardid on mängitud, lõpeb ring ning iga mängija punktid arvutatakse tema arvamuse ja tulemuse põhjal (võidetud kaartide arv võrreldes arvamusega).",
+      "Seejärel läheb jagamisjärg üle järgmisele mängijale ja algab uus ring."
+    ],
     "scoringTitle": "Punktisüsteem",
-    "scoringText": "Teie punktisumma on võrdne teie vastusega. Kui teie arvamine vastab tegelikule arvule täpselt, lisandub veel 5 punkti. Näide: vastus 3 ja arvamine 3 annab kokku 8 punkti.",
+    "scoringText": "Ringis saad punkte võidetud kaartide arvu eest ning täpse arvamuse korral lisaks 5 boonuspunkti. Näiteks:",
+    "scoringList": [
+      "Kui mängija võidab 3 kaarti ja arvas 3, saab ta 8 punkti.",
+      "Kui mängija võidab 3 kaarti ja arvas 2, saab ta 3 punkti.",
+      "Kui mängija võidab 3 kaarti ja arvas 4, saab ta 3 punkti.",
+      "Kui mängija ei võida ühtegi kaarti ja arvas 0, saab ta 5 punkti.",
+      "Kui mängija ei võida ühtegi kaarti ja arvas 1, saab ta 0 punkti."
+    ],
     "trumpTitle": "Trump",
-    "trumpText": "Kui ring jõuab praeguse mängijate arvu maksimaalseni, valitakse juhuslikult üks masti trump. See näidatakse mängu ajal, kuid see ei muuda põhikriteeriume.",
+    "trumpText": "Trump valitakse juhuslikult igal ringil. Viimastel ringidel loob rakendus trumbi automaatselt, sest laual ei ole enam lisakaarte näidata.",
     "winnerTitle": "Võitja",
     "winnerText": "Pärast viimast ringi on võitja mängija, kellel on kõige rohkem punkte."
   }

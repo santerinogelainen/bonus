@@ -36,16 +36,49 @@
     "title": "Rules",
     "intro": "Bonus is a card game for 2-6 players.",
     "goalTitle": "Goal",
-    "goalText": "Collect as many points as possible across the whole game. In each round, your score is based on your guess/estimate, and an exact guess gives you a 5-point bonus.",
+    "goalText": "Collect as many points as possible during the game. Each round is scored by the guess and the answer.",
     "setupTitle": "Setup",
-    "setupText": "The game starts by naming the players. Each round has a dealer who rotates after every round. The number of cards in play starts at 1 and rises to the maximum for the current player count before falling again.",
+    "setupText": "At the start of the game, each player is given a name. The game then randomly selects the first dealer, and the rounds begin. The dealer changes after each round. The deal starts with one card and the number of cards increases each round until it reaches the maximum, then starts decreasing again. Low cards are removed from the deck before the game:",
+    "setupList": [
+      "In games with 2, 3, 4, or 6 players, cards 5 and below are removed, so cards 6–14 are used.",
+      "In games with 5 players, cards 4 and below are removed, so cards 5–14 are used.",
+      "NOTE: Jack = 11, Queen = 12, King = 13, Ace = 14."
+    ],
     "roundFlowTitle": "How a round works",
-    "roundFlowText1": "The dealer deals the round's card count. Then players take turns guessing how many cards they think they received. The available guess range is from 0 up to the number of cards in play.",
-    "roundFlowText2": "After everyone has guessed, the active player reveals the actual number. That number becomes their answer and is scored immediately. The round ends once all answers are recorded.",
+    "roundFlowList": [
+      "The dealer shuffles the deck and deals the round's cards to each player so no one can see the other players' cards. The dealer also turns up a trump card (the trump suit) for everyone to see.",
+      "Players take turns guessing how many cards they think they will win during the round. The player after the dealer guesses first, guesses are made in player order, and the dealer guesses last."
+    ],
+    "roundFlowGuesses": [
+      "Allowed guesses range from 0 to the number of cards in the round.",
+      "When there are 4 or more cards in a round, the last player to guess (the dealer) may not choose a number that makes the total of all guesses equal to the number of cards in the round. This ensures that at least one player's guess is wrong.",
+      "If the guesses made before the last player's turn already add up to more than the number of cards, the last player may choose any guess."
+    ],
+    "roundFlowList2": [
+      "Once all guesses have been made, the player who guessed first starts the round by playing one card. The next player in order then plays one card, and play continues until everyone has played one card."
+    ],
+    "roundFlowHierarchy": [
+      "Players must first play a card of the same suit as the lead card, if they have one.",
+      "If a player does not have a card of that suit, they must play a trump card if they have one.",
+      "If a player has neither a card of the lead suit nor a trump card, they may play any card."
+    ],
+    "roundFlowList3": [
+      "Once everyone has played one card, the player who played the highest card wins the hand. If any trump cards are on the table, the highest trump card wins.",
+      "The winner collects the cards played on the table and places them in front of themselves. They then play one card from their hand, and this cycle continues until all cards have been played.",
+      "Once all cards have been played, the round ends and each player's score is calculated (cards won compared with their guess).",
+      "The dealer then passes to the next player and a new round begins."
+    ],
     "scoringTitle": "Scoring",
-    "scoringText": "You score points equal to your answer. If your guess matches the actual answer exactly, you receive an additional 5 points. Example: answer 3 and guess 3 gives 8 points in total.",
+    "scoringText": "You score points for the number of cards you win in the round, plus 5 bonus points if your guess was exactly right. For example:",
+    "scoringList": [
+      "If a player wins 3 cards and guessed 3, they score 8 points.",
+      "If a player wins 3 cards and guessed 2, they score 3 points.",
+      "If a player wins 3 cards and guessed 4, they score 3 points.",
+      "If a player wins 0 cards and guessed 0, they score 5 points.",
+      "If a player wins 0 cards and guessed 1, they score 0 points."
+    ],
     "trumpTitle": "Trump suit",
-    "trumpText": "When the round reaches the maximum number of cards for the current player count, one suit is chosen at random as the trump suit. It is shown during play, but it does not change the basic scoring formula.",
+    "trumpText": "A trump suit is chosen randomly each round. In the final rounds, the app generates it automatically because there are no leftover cards to show on the table.",
     "winnerTitle": "Winner",
     "winnerText": "After the final round, the player with the highest total score wins the game."
   }

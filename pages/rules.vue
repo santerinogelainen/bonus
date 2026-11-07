@@ -20,19 +20,39 @@
         <h2 class="text-h6 mb-2">
           {{ $t('rules.setupTitle') }}
         </h2>
-        <p class="mb-4">
+        <p class="mb-2">
           {{ $t('rules.setupText') }}
         </p>
+        <ul class="mb-4 ps-6">
+          <li v-for="(item, index) in $tm('rules.setupList')" :key="index">
+            {{ $rt(item) }}
+          </li>
+        </ul>
 
         <h2 class="text-h6 mb-2">
           {{ $t('rules.roundFlowTitle') }}
         </h2>
-        <p class="mb-4">
-          {{ $t('rules.roundFlowText1') }}
-        </p>
-        <p class="mb-4">
-          {{ $t('rules.roundFlowText2') }}
-        </p>
+        <ol class="mb-4 ps-6">
+          <li v-for="(item, index) in $tm('rules.roundFlowList')" :key="index">
+            {{ $rt(item) }}
+            <ul v-if="index === 1" class="ps-6">
+              <li v-for="(guessRule, ruleIndex) in $tm('rules.roundFlowGuesses')" :key="ruleIndex">
+                {{ $rt(guessRule) }}
+              </li>
+            </ul>
+          </li>
+          <li v-for="(item, index) in $tm('rules.roundFlowList2')" :key="`play-${index}`">
+            {{ $rt(item) }}
+            <ul v-if="index === 0" class="ps-6">
+              <li v-for="(rule, ruleIndex) in $tm('rules.roundFlowHierarchy')" :key="ruleIndex">
+                {{ $rt(rule) }}
+              </li>
+            </ul>
+          </li>
+          <li v-for="(item, index) in $tm('rules.roundFlowList3')" :key="`after-play-${index}`">
+            {{ $rt(item) }}
+          </li>
+        </ol>
 
         <h2 class="text-h6 mb-2">
           {{ $t('rules.scoringTitle') }}
@@ -40,6 +60,11 @@
         <p class="mb-4">
           {{ $t('rules.scoringText') }}
         </p>
+        <ul class="mb-4 ps-6">
+          <li v-for="(item, index) in $tm('rules.scoringList')" :key="index">
+            {{ $rt(item) }}
+          </li>
+        </ul>
 
         <h2 class="text-h6 mb-2">
           {{ $t('rules.trumpTitle') }}
